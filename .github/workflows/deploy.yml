@@ -1,0 +1,27 @@
+# This workflow will build a docker container, publish it to Azure Container Registry, and deploy it to Azure Kubernetes Service using a helm chart.
+#
+# https://github.com/Azure/actions-workflow-samples/tree/master/Kubernetes
+#
+# To configure this workflow:
+#
+# 1. Set up the following secrets in your workspace:
+#     a. STORAGE_ACCOUNT_KEY
+#
+# 2. Change the values for the REGISTRY_NAME, CLUSTER_NAME, CLUSTER_RESOURCE_GROUP and NAMESPACE environment variables (below).
+name: deploy
+on: [push]
+
+# Environment variables available to all jobs and steps in this workflow
+env:
+  STORAGE_ACCOUNT_NAME: k8scovid
+  STORAGE_DESTINATION: shiny-innovation-files/example-R
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Copy to storage account
+      uses: azure/CLI@v1
+      with:
+        inlineScript: |
+          az storage file upload-batch --account-name ${{ env.STORAGE_ACCOUNT_NAME }} --account-key ${{ secrets.STORAGE_ACCOUNT_KEY }} --destination ${{ env.STORAGE_DESTINATION }} --source .
