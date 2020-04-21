@@ -17,7 +17,8 @@ on:
 # Environment variables available to all jobs and steps in this workflow
 env:
   STORAGE_ACCOUNT_NAME: k8scovid
-  STORAGE_DESTINATION: shiny-innovation-files/example-R
+  STORAGE_DESTINATION: shiny-innovation-files
+  STORAGE_DESTINATION_PATH: example-R
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -27,4 +28,4 @@ jobs:
       uses: azure/CLI@v1
       with:
         inlineScript: |
-          az storage file upload-batch --account-name ${{ env.STORAGE_ACCOUNT_NAME }} --account-key ${{ secrets.STORAGE_ACCOUNT_KEY }} --destination ${{ env.STORAGE_DESTINATION }} --source .
+          az storage file upload-batch --account-name ${{ env.STORAGE_ACCOUNT_NAME }} --account-key ${{ secrets.STORAGE_ACCOUNT_KEY }} --destination ${{ env.STORAGE_DESTINATION }} --destination-path ${{ env.STORAGE_DESTINATION_PATH }} --source .
