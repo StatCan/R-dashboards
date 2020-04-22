@@ -20,4 +20,5 @@ function(input, output, session) {
     points(clusters()$centers, pch = 4, cex = 4, lwd = 4)
   })
 
+  # test
 }
