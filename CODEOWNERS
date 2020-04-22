@@ -1,0 +1,13 @@
+# DAaaS are the default administrators
+*                     @statcan/daaas
+
+# Workflows are restricted
+/.github/workflows/     @sylus @zachomedia
+
+# Project-specific owners
+#
+# User:
+## /example-R-dashboard/ @githubuser
+# Team:
+## /example-R-dashboard/ @statcan/teamname
+# Multiple can be set on the same line
