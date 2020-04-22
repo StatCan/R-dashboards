@@ -2,7 +2,7 @@
 *                     @statcan/daaas
 
 # Workflows are restricted
-/.github/workflows/     @sylus @zachomedia
+/.github/workflows/   @statcan/daaas-workflows
 
 # Project-specific owners
 #
