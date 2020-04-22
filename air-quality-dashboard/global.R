@@ -1,7 +1,7 @@
 library(tidyverse)
 
 dir.create(
-  "/tmp/data/air",
+  "/tmp/data/air-pollution-dashboard",
   recursive=TRUE,
   showWarnings = FALSE
 )
