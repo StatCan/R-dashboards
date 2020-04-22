@@ -55,5 +55,5 @@ fluidPage(
       plotOutput("right_plot_so2"),
       width = 6,
       align = "center"),
-  ),
+  )
 )
