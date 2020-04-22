@@ -1,13 +1,13 @@
 library(tidyverse)
 
+DATA="/tmp/data/air-pollution-dashboard/"
 dir.create(
-  "/tmp/data/air-pollution-dashboard",
+  DATA,
   recursive=TRUE,
   showWarnings = FALSE
 )
 
-BUCKET="https://datasets.covid.cloud.statcan.ca/minio/public/air-quality/"
-DATA="/tmp/data/air-pollution-dashboard/"
+BUCKET="https://datasets.covid.cloud.statcan.ca/public/air-quality/"
 
 periods <- c("2020",
              "2019Q1",
@@ -34,7 +34,7 @@ species_names <- list("co" = "Carbon Monoxide",
 getData <- function(periods) {
   dfs <- list()
   for (period in periods) {
-    df <- read_csv(paste0("/tmp/data/air-pollution-dashboard/", period, ".csv"), skip = 4)
+    df <- read_csv(paste0(DATA, period, ".csv"), skip = 4)
     dfs[[period]] <- df 
   }
   return(dfs)
