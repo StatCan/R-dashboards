@@ -1,8 +1,11 @@
 # DAaaS are the default administrators
 *                     @statcan/daaas
 
+# Codeowners is restricted
+CODEOWNERS            @statcan/daaas-admins
+
 # Workflows are restricted
-/.github/workflows/     @sylus @zachomedia
+/.github/workflows/   @statcan/daaas-workflows
 
 # Project-specific owners
 #
