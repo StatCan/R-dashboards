@@ -6,7 +6,7 @@ library(tidyverse)
 fluidPage(
   fluidRow(
     column(
-      titlePanel(title = "Air Pollution Comparison App.",
+      titlePanel(title = "(This page is a sample) Air Pollution Comparison App.",
                  windowTitle = "Air Pollution."),
       width = 12,
       align = "center")),

@@ -4,7 +4,7 @@
 vars <- setdiff(names(iris), "Species")
 
 pageWithSidebar(
-  headerPanel('Iris k-means clustering'),
+  headerPanel('(This page is a sample) Iris k-means clustering'),
   sidebarPanel(
     selectInput('xcol', 'X Variable', vars),
     selectInput('ycol', 'Y Variable', vars, selected = vars[[2]]),

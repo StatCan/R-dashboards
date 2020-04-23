@@ -2,7 +2,7 @@ library(shinydashboard)
 library(leaflet)
 
 header <- dashboardHeader(
-  title = "Twin Cities Buses"
+  title = "(This page is a sample) Twin Cities Buses"
 )
 
 body <- dashboardBody(
