@@ -6,6 +6,11 @@ header <- dashboardHeader(
 )
 
 body <- dashboardBody(
+   fluidRow(
+    headerPanel("Disclaimer: This is an example. It may be out of date. / Avertissement: ceci est un exemple. Il peut être obsolète"),
+    width = "100%",
+    align = "center",
+    style = "background-color:#ebae34; color:#ffffff; margin-bottom: 30px;"),
   fluidRow(
     column(width = 9,
       box(width = NULL, solidHeader = TRUE,

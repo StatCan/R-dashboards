@@ -4,6 +4,11 @@ library(shiny)
 library(tidyverse)
 
 fluidPage(
+   fluidRow(
+    headerPanel("Disclaimer: This is an example. It may be out of date. / Avertissement: ceci est un exemple. Il peut être obsolète"),
+    width = "100%",
+    align = "center",
+    style = "background-color:#ebae34; color:#ffffff; margin-bottom: 30px;"),
   fluidRow(
     column(
       titlePanel(title = "Air Pollution Comparison App.",
