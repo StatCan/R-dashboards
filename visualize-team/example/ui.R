@@ -12,6 +12,12 @@ library(shiny)
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
   
+     fluidRow(
+    headerPanel("Disclaimer: This is an example. It may be out of date. / Avertissement: ceci est un exemple. Il peut être obsolète"),
+    width = "100%",
+    align = "center",
+    style = "background-color:#ebae34; color:#ffffff; margin-bottom: 30px;"),
+    
   # Application title
   titlePanel("Old Faithful Geyser Data"),
   
