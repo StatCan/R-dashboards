@@ -3,6 +3,8 @@
 
 # Codeowners is restricted
 CODEOWNERS            @statcan/daaas-admins
+LICENSE               @statcan/daaas-admins
+LICENSE.md            @statcan/daaas-admins
 
 # Workflows are restricted
 /.github/workflows/   @statcan/daaas-workflows
