@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1576536526463.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "8D1897F6",
+    "lastKnownWriteTime" : 1576441580,
+    "last_content_update" : 1576441580,
+    "path" : "~/Documents/Projects/KnownSideEffects/bilingual_app.R",
+    "project_path" : "bilingual_app.R",
+    "properties" : {
+        "cursorPosition" : "65,0",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
