@@ -12,6 +12,11 @@ source("create_data.R")
 ui <- shinyUI(
   
   fluidPage(
+           fluidRow(
+    headerPanel("Disclaimer: This is an example. It may be out of date. / Avertissement: ceci est un exemple. Il peut être obsolète"),
+    width = "100%",
+    align = "center",
+    style = "background-color:#ebae34; color:#ffffff; margin-bottom: 30px;"),
     
     tags$style(HTML('.navbar-nav > li > a, .navbar-brand {
                    padding-top:14px !important;
