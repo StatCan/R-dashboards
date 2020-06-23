@@ -9,7 +9,7 @@ To submit your own dashboard:
 * Fork this R-dashboards repo
 * Add your dashboard to an unclaimed top level directory (similar to /covid-19-dashboard and others).  
 	* Note that the name you choose here also sets your dashboard's URL (https://shiny.covid.cloud.statcan.ca/my-well-named-dashboard)
-	* As an interm solution, please embed your dashboard's data in the dashboard (for example, see /ev-data-viz/data).  A more flexible solution is in the works but not yet completed
+	* As an interm solution, please embed your dashboard's data in the dashboard (for example, see [/ev-data-viz/data](https://github.com/StatCan/R-dashboards/tree/master/ev-data-viz/data/raw)).  A more flexible solution is in the works but not yet completed
 	* NOTE: **if your data is large (more than a few MB)** please discuss with us first
 	* Do one of the following:
 		* (Optional but appreciated - this will speed up our review/release process) Test your dashboard against the central shiny implementation by following the **Deployment Testing Instructions** section below.  In particular, identify any packages that are missing from the shiny repo and note them in the text of your PR.
