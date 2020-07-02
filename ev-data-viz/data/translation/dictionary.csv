@@ -22,4 +22,6 @@ vehicle_type,Vehicle type,Genre de véhicule
 origins_of_manufacture,Origins of manufacture,Origine de fabrication
 number_of_new_vehicle_sales,Number of new vehicle sales,Nombre de ventes de véhicules neufs 
 report,Report,Rapport
-generate_report,Generate Report,Creer un rapport
+generate_report,Generate Report,Créer un rapport
+cma_map,CMA Map,RMR carte
+fake_data_message,Contains Fake Data,Contient de fausses données

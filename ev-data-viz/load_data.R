@@ -67,7 +67,7 @@ update_dataset <- function(dataset) {
     download_data <- download_nmvr_data
   }
   
-  ctime <- file.info(data_path)$ctime
+  ctime <- file.info(data_path)$mtime
   current_time <- Sys.time()
   diff <- difftime(current_time, ctime) %>% as.numeric(units = 'hours')
   

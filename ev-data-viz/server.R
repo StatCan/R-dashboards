@@ -3,6 +3,8 @@ library(leaflet)
 library(plotly)
 library(plyr)
 library(RColorBrewer)
+library(rgdal)
+library(sf)
 library(shiny)
 library(shinyjs)
 library(shinythemes)
@@ -23,8 +25,8 @@ dictionary_content <- read_csv('data/translation/dictionary.csv')
 translation <- dlply(dictionary_content ,.(key), function(s) key = as.list(s))
 
 
+
 server <- function(input, output, session) {
-  
   
   # Translation -------------------------------------------------------------
   
@@ -203,9 +205,6 @@ server <- function(input, output, session) {
             textsize = "15px", direction = "auto"))
     }
   })
-  
-  
-  
   
   
   
@@ -406,11 +405,90 @@ server <- function(input, output, session) {
   
   
   
+  
+  # CMA Level view ----------------------------------------------------------
+  
+  # Load data
+  fake_cma <- read_csv('./data/raw/fake_cma.csv')
+  can_prov <- readOGR(dsn = "./data/raw/lcma000b16a_e/lcma000b16a_e.shp")
+  can_cma <- readOGR(dsn = "./data/raw/lcma000b16a_e/lcma000b16a_e.shp")
+  can <- spTransform(can_prov, CRS("+proj=longlat +datum=WGS84"))
+
+  cma_max_year <- fake_cma$year %>% max()
+  cma_min_year <- fake_cma$year %>% min()
+
+
+  # UI components
+  output$text_fake_data_message <- renderText({
+    tr('fake_data_message')
+  })
+  
+  output$text_cma_map <- renderText({
+    tr('cma_map')
+  })
+  
+  output$slider_cma_date <- renderUI({
+    sliderInput(
+      'slider_cma_date',
+      label = tr('year'),
+      value = cma_max_year,
+      min = cma_min_year,
+      max = cma_max_year,
+      step = 1,
+      sep = '',
+      animate = animationOptions(interval = 2000, loop = FALSE)
+    )
+  })
+
+  # Reactive values
+  reactive_cma_data<- reactive({
+    fake_cma %>%
+    mutate(cmapuid = as.character(cmapuid)) %>% 
+    filter(year == input$slider_cma_date) %>%
+    right_join(can@data, by = c('cmapuid' = 'CMAPUID'))
+  })
+  
+  reactive_cma_values <- reactive({
+    reactive_cma_data() %>% pull(value)
+  })
+  
+  reactive_cma_labels <- reactive({
+    reactive_cma_data() %>% 
+    mutate(label = paste0("<strong>", CMANAME, "</strong><br/><strong>Value: ", value, "</strong>")) %>%
+    pull(label) %>%
+    lapply(htmltools::HTML)
+  })
+  
+  
+  
+  bins_cma <- c(0, 10, 20, 50, 100, 200, 500, 1000, Inf)
+  pal_cma <- colorBin("YlOrRd", domain = c(0, max(fake_cma$value)), bins = bins_cma)
+  
+  
+  # Basemap
+  # TODO: highlight ui remains permanent
+  # TODO: use leaflet proxy
+  output$leaflet_cma_map <- renderLeaflet({
+    leaflet() %>%
+      addTiles() %>%
+      setView(-95, 55, zoom = 5) %>% 
+      addPolygons(
+        data = can,
+        fillColor = ~pal_cma(reactive_cma_values()),
+        weight = 0,
+        fillOpacity = 0.7,
+        label = reactive_cma_labels(),
+        highlight = highlightOptions(
+          weight = 1,
+          bringToFront = TRUE)
+      )
+  })
+
+  
 
   # Generating Report -------------------------------------------------------
   
   # UI components
-  
   output$report <- renderText({
     tr('report')
   })
@@ -418,7 +496,6 @@ server <- function(input, output, session) {
   output$generate_report <- renderText({
     tr('generate_report')
   })
-  
   
   
   output$btn_download_report <- downloadHandler(
