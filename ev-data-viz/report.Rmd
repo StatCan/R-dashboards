@@ -1,0 +1,147 @@
+---
+title: "New Motor Vehicle Sales and Registrations in Canada"
+subtitle: ''
+# author: "Name"
+date: "`r Sys.Date()`"
+# geometry: margin=1cm
+output: 
+  html_document
+  # pdf_document
+params:
+  nmvs_data: NA
+  nmvr_data: NA
+---
+
+```{r setup, echo=FALSE, include=FALSE, warning=FALSE, message=FALSE}
+
+# load libraries
+library(ggrepel)
+library(ggthemes)
+library(janitor)
+library(knitr)
+library(skimr)
+library(scales)
+library(tidyverse)
+
+# Set some options
+knitr::opts_chunk$set(echo = FALSE, cache = TRUE, linewidth = 45, fig.height = 6, fig.width = 10, tidy = TRUE)
+skimr::skim_with(numeric = list(hist = NULL))
+
+# Load the data
+nmvs_data <- params$nmvs_data
+nmvr_data <- params$nmvr_data
+```
+
+
+## EV Registrations by Province
+
+```{r}
+max_year <- nmvr_data$year %>% max()
+
+other_provinces <- c("Newfoundland and Labrador",
+                     "Prince Edward Island",
+                     "Nova Scotia",
+                     "New Brunswick",
+                     "Manitoba",
+                     "Saskatchewan",
+                     "Alberta")
+
+ev_fuel_types <- c('Battery electric', 'Plug-in hybrid electric')
+
+ev_nmvr_data <- 
+  nmvr_data %>% 
+  filter(fuel_type %in% ev_fuel_types) 
+
+# Pie chart
+ev_plot_data <- ev_nmvr_data %>% 
+  filter(year == max_year) %>% 
+  mutate(geo = ifelse(geo %in% other_provinces, 'Other provinces', geo)) %>% 
+  group_by(geo) %>% 
+  summarise(amount = sum(amount)) %>% 
+  ungroup() 
+
+ev_plot_data %>% 
+  arrange(desc(geo)) %>% 
+  mutate(prop = amount / sum(ev_plot_data$amount) * 100) %>% 
+  mutate(prop = round(prop, 2)) %>% 
+  mutate(ypos = cumsum(prop) - 0.5*prop) %>% 
+  
+  ggplot(aes(x='', y=prop, fill=geo)) +
+  geom_bar(stat='identity', width=1, color='white') +
+  coord_polar('y', start=0) +
+  theme_void() +
+  
+  geom_text(aes(y=ypos, label=paste0(prop, '%')), color='white') +
+  labs(
+    title = paste0('EV Registrations By Province - ', max_year),
+    fill = ''
+  )
+
+
+# Table
+ev_nmvr_data %>% 
+  arrange(year, geo) %>% 
+  group_by(year, geo) %>% 
+  summarise(amount = sum(amount)) %>% 
+  ungroup() %>% 
+  group_by(geo) %>% 
+  mutate(approx_total = cumsum(amount)) %>% 
+  filter(year == max_year) %>% 
+  select(-year) %>% 
+  adorn_totals('row', name = 'Canada') %>% 
+  rename('Province/Territory' = geo, !!paste(max_year) := amount, 'Approx. EV Total' = approx_total) %>% 
+  kable()
+```
+
+
+
+## BEV vs PHEV
+
+```{r}
+n_years <- nmvr_data$year %>% unique() %>% length()
+
+nmvr_data %>% 
+  filter(fuel_type %in% c('Battery electric', 'Plug-in hybrid electric')) %>% 
+  group_by(year, fuel_type) %>% 
+  summarise(amount = sum(amount)) %>% 
+  ungroup() %>% 
+  
+  ggplot(aes(x=year, y=amount, color=fuel_type, label=amount)) +
+  geom_line() +
+  geom_point() + 
+  geom_text_repel() +
+  labs(
+    x = 'Year',
+    y = 'Vehicle sales',
+    title = 'Yearly EV Registrations by Type',
+    color = 'Fuel Type'
+  ) +
+  scale_x_continuous(breaks = scales::pretty_breaks(n = n_years)) +
+  theme_hc()
+```
+
+
+
+
+
+## Sources
+
+[Statistics Canada, New motor vehicle registrations](https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2010002101)  
+[Statistics Canada, New motor vehicle sales](https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2010000101)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

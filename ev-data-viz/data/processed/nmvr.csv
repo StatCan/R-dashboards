@@ -1,0 +1,561 @@
+year,geo,fuel_type,amount,latitude,longitude,cumsum
+2011,Newfoundland and Labrador,All fuel types,0,53,-60,0
+2011,Newfoundland and Labrador,Gasoline,0,53,-60,0
+2011,Newfoundland and Labrador,Diesel,0,53,-60,0
+2011,Newfoundland and Labrador,Battery electric,0,53,-60,0
+2011,Newfoundland and Labrador,Hybrid electric,0,53,-60,0
+2011,Newfoundland and Labrador,Plug-in hybrid electric,0,53,-60,0
+2011,Newfoundland and Labrador,Other fuel types,0,53,-60,0
+2011,Prince Edward Island,All fuel types,6266,46.25,-63,6266
+2011,Prince Edward Island,Gasoline,6127,46.25,-63,6127
+2011,Prince Edward Island,Diesel,101,46.25,-63,101
+2011,Prince Edward Island,Battery electric,0,46.25,-63,0
+2011,Prince Edward Island,Hybrid electric,38,46.25,-63,38
+2011,Prince Edward Island,Plug-in hybrid electric,0,46.25,-63,0
+2011,Prince Edward Island,Other fuel types,0,46.25,-63,0
+2011,Nova Scotia,All fuel types,0,45,-63,0
+2011,Nova Scotia,Gasoline,0,45,-63,0
+2011,Nova Scotia,Diesel,0,45,-63,0
+2011,Nova Scotia,Battery electric,0,45,-63,0
+2011,Nova Scotia,Hybrid electric,0,45,-63,0
+2011,Nova Scotia,Plug-in hybrid electric,0,45,-63,0
+2011,Nova Scotia,Other fuel types,0,45,-63,0
+2011,New Brunswick,All fuel types,40110,46.49839,-66.159668,40110
+2011,New Brunswick,Gasoline,39264,46.49839,-66.159668,39264
+2011,New Brunswick,Diesel,705,46.49839,-66.159668,705
+2011,New Brunswick,Battery electric,0,46.49839,-66.159668,0
+2011,New Brunswick,Hybrid electric,141,46.49839,-66.159668,141
+2011,New Brunswick,Plug-in hybrid electric,0,46.49839,-66.159668,0
+2011,New Brunswick,Other fuel types,0,46.49839,-66.159668,0
+2011,Quebec,All fuel types,420524,53,-70,420524
+2011,Quebec,Gasoline,408292,53,-70,408292
+2011,Quebec,Diesel,9987,53,-70,9987
+2011,Quebec,Battery electric,64,53,-70,64
+2011,Quebec,Hybrid electric,2082,53,-70,2082
+2011,Quebec,Plug-in hybrid electric,99,53,-70,99
+2011,Quebec,Other fuel types,0,53,-70,0
+2011,Ontario,All fuel types,577342,50,-85,577342
+2011,Ontario,Gasoline,556037,50,-85,556037
+2011,Ontario,Diesel,16666,50,-85,16666
+2011,Ontario,Battery electric,80,50,-85,80
+2011,Ontario,Hybrid electric,4396,50,-85,4396
+2011,Ontario,Plug-in hybrid electric,163,50,-85,163
+2011,Ontario,Other fuel types,0,50,-85,0
+2011,Manitoba,All fuel types,47567,53.76086,-98.813873,47567
+2011,Manitoba,Gasoline,45716,53.76086,-98.813873,45716
+2011,Manitoba,Diesel,1647,53.76086,-98.813873,1647
+2011,Manitoba,Battery electric,6,53.76086,-98.813873,6
+2011,Manitoba,Hybrid electric,197,53.76086,-98.813873,197
+2011,Manitoba,Plug-in hybrid electric,1,53.76086,-98.813873,1
+2011,Manitoba,Other fuel types,0,53.76086,-98.813873,0
+2011,Saskatchewan,All fuel types,52543,55,-106,52543
+2011,Saskatchewan,Gasoline,48274,55,-106,48274
+2011,Saskatchewan,Diesel,4111,55,-106,4111
+2011,Saskatchewan,Battery electric,1,55,-106,1
+2011,Saskatchewan,Hybrid electric,157,55,-106,157
+2011,Saskatchewan,Plug-in hybrid electric,0,55,-106,0
+2011,Saskatchewan,Other fuel types,0,55,-106,0
+2011,Alberta,All fuel types,0,55,-115,0
+2011,Alberta,Gasoline,0,55,-115,0
+2011,Alberta,Diesel,0,55,-115,0
+2011,Alberta,Battery electric,0,55,-115,0
+2011,Alberta,Hybrid electric,0,55,-115,0
+2011,Alberta,Plug-in hybrid electric,0,55,-115,0
+2011,Alberta,Other fuel types,0,55,-115,0
+2011,British Columbia,All fuel types,167838,53.726669,-127.647621,167838
+2011,British Columbia,Gasoline,155347,53.726669,-127.647621,155347
+2011,British Columbia,Diesel,10474,53.726669,-127.647621,10474
+2011,British Columbia,Battery electric,49,53.726669,-127.647621,49
+2011,British Columbia,Hybrid electric,1930,53.726669,-127.647621,1930
+2011,British Columbia,Plug-in hybrid electric,38,53.726669,-127.647621,38
+2011,British Columbia,Other fuel types,0,53.726669,-127.647621,0
+2012,Newfoundland and Labrador,All fuel types,0,53,-60,0
+2012,Newfoundland and Labrador,Gasoline,0,53,-60,0
+2012,Newfoundland and Labrador,Diesel,0,53,-60,0
+2012,Newfoundland and Labrador,Battery electric,0,53,-60,0
+2012,Newfoundland and Labrador,Hybrid electric,0,53,-60,0
+2012,Newfoundland and Labrador,Plug-in hybrid electric,0,53,-60,0
+2012,Newfoundland and Labrador,Other fuel types,0,53,-60,0
+2012,Prince Edward Island,All fuel types,7181,46.25,-63,13447
+2012,Prince Edward Island,Gasoline,6956,46.25,-63,13083
+2012,Prince Edward Island,Diesel,102,46.25,-63,203
+2012,Prince Edward Island,Battery electric,2,46.25,-63,2
+2012,Prince Edward Island,Hybrid electric,120,46.25,-63,158
+2012,Prince Edward Island,Plug-in hybrid electric,1,46.25,-63,1
+2012,Prince Edward Island,Other fuel types,0,46.25,-63,0
+2012,Nova Scotia,All fuel types,0,45,-63,0
+2012,Nova Scotia,Gasoline,0,45,-63,0
+2012,Nova Scotia,Diesel,0,45,-63,0
+2012,Nova Scotia,Battery electric,0,45,-63,0
+2012,Nova Scotia,Hybrid electric,0,45,-63,0
+2012,Nova Scotia,Plug-in hybrid electric,0,45,-63,0
+2012,Nova Scotia,Other fuel types,0,45,-63,0
+2012,New Brunswick,All fuel types,40211,46.49839,-66.159668,80321
+2012,New Brunswick,Gasoline,39074,46.49839,-66.159668,78338
+2012,New Brunswick,Diesel,732,46.49839,-66.159668,1437
+2012,New Brunswick,Battery electric,1,46.49839,-66.159668,1
+2012,New Brunswick,Hybrid electric,397,46.49839,-66.159668,538
+2012,New Brunswick,Plug-in hybrid electric,7,46.49839,-66.159668,7
+2012,New Brunswick,Other fuel types,0,46.49839,-66.159668,0
+2012,Quebec,All fuel types,423863,53,-70,844387
+2012,Quebec,Gasoline,405930,53,-70,814222
+2012,Quebec,Diesel,10888,53,-70,20875
+2012,Quebec,Battery electric,280,53,-70,344
+2012,Quebec,Hybrid electric,6085,53,-70,8167
+2012,Quebec,Plug-in hybrid electric,679,53,-70,778
+2012,Quebec,Other fuel types,1,53,-70,1
+2012,Ontario,All fuel types,582972,50,-85,1160314
+2012,Ontario,Gasoline,556056,50,-85,1112093
+2012,Ontario,Diesel,18773,50,-85,35439
+2012,Ontario,Battery electric,198,50,-85,278
+2012,Ontario,Hybrid electric,7510,50,-85,11906
+2012,Ontario,Plug-in hybrid electric,433,50,-85,596
+2012,Ontario,Other fuel types,2,50,-85,2
+2012,Manitoba,All fuel types,49666,53.76086,-98.813873,97233
+2012,Manitoba,Gasoline,47513,53.76086,-98.813873,93229
+2012,Manitoba,Diesel,1747,53.76086,-98.813873,3394
+2012,Manitoba,Battery electric,6,53.76086,-98.813873,12
+2012,Manitoba,Hybrid electric,383,53.76086,-98.813873,580
+2012,Manitoba,Plug-in hybrid electric,17,53.76086,-98.813873,18
+2012,Manitoba,Other fuel types,0,53.76086,-98.813873,0
+2012,Saskatchewan,All fuel types,56247,55,-106,108790
+2012,Saskatchewan,Gasoline,51543,55,-106,99817
+2012,Saskatchewan,Diesel,4437,55,-106,8548
+2012,Saskatchewan,Battery electric,1,55,-106,2
+2012,Saskatchewan,Hybrid electric,259,55,-106,416
+2012,Saskatchewan,Plug-in hybrid electric,7,55,-106,7
+2012,Saskatchewan,Other fuel types,0,55,-106,0
+2012,Alberta,All fuel types,0,55,-115,0
+2012,Alberta,Gasoline,0,55,-115,0
+2012,Alberta,Diesel,0,55,-115,0
+2012,Alberta,Battery electric,0,55,-115,0
+2012,Alberta,Hybrid electric,0,55,-115,0
+2012,Alberta,Plug-in hybrid electric,0,55,-115,0
+2012,Alberta,Other fuel types,0,55,-115,0
+2012,British Columbia,All fuel types,178996,53.726669,-127.647621,346834
+2012,British Columbia,Gasoline,163985,53.726669,-127.647621,319332
+2012,British Columbia,Diesel,10894,53.726669,-127.647621,21368
+2012,British Columbia,Battery electric,134,53.726669,-127.647621,183
+2012,British Columbia,Hybrid electric,3837,53.726669,-127.647621,5767
+2012,British Columbia,Plug-in hybrid electric,144,53.726669,-127.647621,182
+2012,British Columbia,Other fuel types,2,53.726669,-127.647621,2
+2013,Newfoundland and Labrador,All fuel types,0,53,-60,0
+2013,Newfoundland and Labrador,Gasoline,0,53,-60,0
+2013,Newfoundland and Labrador,Diesel,0,53,-60,0
+2013,Newfoundland and Labrador,Battery electric,0,53,-60,0
+2013,Newfoundland and Labrador,Hybrid electric,0,53,-60,0
+2013,Newfoundland and Labrador,Plug-in hybrid electric,0,53,-60,0
+2013,Newfoundland and Labrador,Other fuel types,0,53,-60,0
+2013,Prince Edward Island,All fuel types,7356,46.25,-63,20803
+2013,Prince Edward Island,Gasoline,7146,46.25,-63,20229
+2013,Prince Edward Island,Diesel,92,46.25,-63,295
+2013,Prince Edward Island,Battery electric,0,46.25,-63,2
+2013,Prince Edward Island,Hybrid electric,117,46.25,-63,275
+2013,Prince Edward Island,Plug-in hybrid electric,1,46.25,-63,2
+2013,Prince Edward Island,Other fuel types,0,46.25,-63,0
+2013,Nova Scotia,All fuel types,0,45,-63,0
+2013,Nova Scotia,Gasoline,0,45,-63,0
+2013,Nova Scotia,Diesel,0,45,-63,0
+2013,Nova Scotia,Battery electric,0,45,-63,0
+2013,Nova Scotia,Hybrid electric,0,45,-63,0
+2013,Nova Scotia,Plug-in hybrid electric,0,45,-63,0
+2013,Nova Scotia,Other fuel types,0,45,-63,0
+2013,New Brunswick,All fuel types,41562,46.49839,-66.159668,121883
+2013,New Brunswick,Gasoline,40284,46.49839,-66.159668,118622
+2013,New Brunswick,Diesel,880,46.49839,-66.159668,2317
+2013,New Brunswick,Battery electric,3,46.49839,-66.159668,4
+2013,New Brunswick,Hybrid electric,384,46.49839,-66.159668,922
+2013,New Brunswick,Plug-in hybrid electric,11,46.49839,-66.159668,18
+2013,New Brunswick,Other fuel types,0,46.49839,-66.159668,0
+2013,Quebec,All fuel types,427846,53,-70,1272233
+2013,Quebec,Gasoline,408947,53,-70,1223169
+2013,Quebec,Diesel,12172,53,-70,33047
+2013,Quebec,Battery electric,545,53,-70,889
+2013,Quebec,Hybrid electric,5352,53,-70,13519
+2013,Quebec,Plug-in hybrid electric,830,53,-70,1608
+2013,Quebec,Other fuel types,0,53,-70,1
+2013,Ontario,All fuel types,625540,50,-85,1785854
+2013,Ontario,Gasoline,594726,50,-85,1706819
+2013,Ontario,Diesel,21944,50,-85,57383
+2013,Ontario,Battery electric,614,50,-85,892
+2013,Ontario,Hybrid electric,7781,50,-85,19687
+2013,Ontario,Plug-in hybrid electric,472,50,-85,1068
+2013,Ontario,Other fuel types,3,50,-85,5
+2013,Manitoba,All fuel types,54603,53.76086,-98.813873,151836
+2013,Manitoba,Gasoline,52423,53.76086,-98.813873,145652
+2013,Manitoba,Diesel,1729,53.76086,-98.813873,5123
+2013,Manitoba,Battery electric,14,53.76086,-98.813873,26
+2013,Manitoba,Hybrid electric,422,53.76086,-98.813873,1002
+2013,Manitoba,Plug-in hybrid electric,15,53.76086,-98.813873,33
+2013,Manitoba,Other fuel types,0,53.76086,-98.813873,0
+2013,Saskatchewan,All fuel types,59706,55,-106,168496
+2013,Saskatchewan,Gasoline,54972,55,-106,154789
+2013,Saskatchewan,Diesel,4485,55,-106,13033
+2013,Saskatchewan,Battery electric,7,55,-106,9
+2013,Saskatchewan,Hybrid electric,231,55,-106,647
+2013,Saskatchewan,Plug-in hybrid electric,11,55,-106,18
+2013,Saskatchewan,Other fuel types,0,55,-106,0
+2013,Alberta,All fuel types,0,55,-115,0
+2013,Alberta,Gasoline,0,55,-115,0
+2013,Alberta,Diesel,0,55,-115,0
+2013,Alberta,Battery electric,0,55,-115,0
+2013,Alberta,Hybrid electric,0,55,-115,0
+2013,Alberta,Plug-in hybrid electric,0,55,-115,0
+2013,Alberta,Other fuel types,0,55,-115,0
+2013,British Columbia,All fuel types,188448,53.726669,-127.647621,535282
+2013,British Columbia,Gasoline,172771,53.726669,-127.647621,492103
+2013,British Columbia,Diesel,11270,53.726669,-127.647621,32638
+2013,British Columbia,Battery electric,382,53.726669,-127.647621,565
+2013,British Columbia,Hybrid electric,3873,53.726669,-127.647621,9640
+2013,British Columbia,Plug-in hybrid electric,152,53.726669,-127.647621,334
+2013,British Columbia,Other fuel types,0,53.726669,-127.647621,2
+2014,Newfoundland and Labrador,All fuel types,0,53,-60,0
+2014,Newfoundland and Labrador,Gasoline,0,53,-60,0
+2014,Newfoundland and Labrador,Diesel,0,53,-60,0
+2014,Newfoundland and Labrador,Battery electric,0,53,-60,0
+2014,Newfoundland and Labrador,Hybrid electric,0,53,-60,0
+2014,Newfoundland and Labrador,Plug-in hybrid electric,0,53,-60,0
+2014,Newfoundland and Labrador,Other fuel types,0,53,-60,0
+2014,Prince Edward Island,All fuel types,7609,46.25,-63,28412
+2014,Prince Edward Island,Gasoline,7372,46.25,-63,27601
+2014,Prince Edward Island,Diesel,148,46.25,-63,443
+2014,Prince Edward Island,Battery electric,5,46.25,-63,7
+2014,Prince Edward Island,Hybrid electric,83,46.25,-63,358
+2014,Prince Edward Island,Plug-in hybrid electric,1,46.25,-63,3
+2014,Prince Edward Island,Other fuel types,0,46.25,-63,0
+2014,Nova Scotia,All fuel types,0,45,-63,0
+2014,Nova Scotia,Gasoline,0,45,-63,0
+2014,Nova Scotia,Diesel,0,45,-63,0
+2014,Nova Scotia,Battery electric,0,45,-63,0
+2014,Nova Scotia,Hybrid electric,0,45,-63,0
+2014,Nova Scotia,Plug-in hybrid electric,0,45,-63,0
+2014,Nova Scotia,Other fuel types,0,45,-63,0
+2014,New Brunswick,All fuel types,43300,46.49839,-66.159668,165183
+2014,New Brunswick,Gasoline,41846,46.49839,-66.159668,160468
+2014,New Brunswick,Diesel,1103,46.49839,-66.159668,3420
+2014,New Brunswick,Battery electric,5,46.49839,-66.159668,9
+2014,New Brunswick,Hybrid electric,339,46.49839,-66.159668,1261
+2014,New Brunswick,Plug-in hybrid electric,7,46.49839,-66.159668,25
+2014,New Brunswick,Other fuel types,0,46.49839,-66.159668,0
+2014,Quebec,All fuel types,436311,53,-70,1708544
+2014,Quebec,Gasoline,412674,53,-70,1635843
+2014,Quebec,Diesel,15523,53,-70,48570
+2014,Quebec,Battery electric,1125,53,-70,2014
+2014,Quebec,Hybrid electric,5338,53,-70,18857
+2014,Quebec,Plug-in hybrid electric,1649,53,-70,3257
+2014,Quebec,Other fuel types,2,53,-70,3
+2014,Ontario,All fuel types,664251,50,-85,2450105
+2014,Ontario,Gasoline,626988,50,-85,2333807
+2014,Ontario,Diesel,28190,50,-85,85573
+2014,Ontario,Battery electric,1091,50,-85,1983
+2014,Ontario,Hybrid electric,7329,50,-85,27016
+2014,Ontario,Plug-in hybrid electric,653,50,-85,1721
+2014,Ontario,Other fuel types,0,50,-85,5
+2014,Manitoba,All fuel types,56437,53.76086,-98.813873,208273
+2014,Manitoba,Gasoline,54129,53.76086,-98.813873,199781
+2014,Manitoba,Diesel,1919,53.76086,-98.813873,7042
+2014,Manitoba,Battery electric,12,53.76086,-98.813873,38
+2014,Manitoba,Hybrid electric,371,53.76086,-98.813873,1373
+2014,Manitoba,Plug-in hybrid electric,6,53.76086,-98.813873,39
+2014,Manitoba,Other fuel types,0,53.76086,-98.813873,0
+2014,Saskatchewan,All fuel types,59102,55,-106,227598
+2014,Saskatchewan,Gasoline,54408,55,-106,209197
+2014,Saskatchewan,Diesel,4458,55,-106,17491
+2014,Saskatchewan,Battery electric,8,55,-106,17
+2014,Saskatchewan,Hybrid electric,214,55,-106,861
+2014,Saskatchewan,Plug-in hybrid electric,11,55,-106,29
+2014,Saskatchewan,Other fuel types,3,55,-106,3
+2014,Alberta,All fuel types,0,55,-115,0
+2014,Alberta,Gasoline,0,55,-115,0
+2014,Alberta,Diesel,0,55,-115,0
+2014,Alberta,Battery electric,0,55,-115,0
+2014,Alberta,Hybrid electric,0,55,-115,0
+2014,Alberta,Plug-in hybrid electric,0,55,-115,0
+2014,Alberta,Other fuel types,0,55,-115,0
+2014,British Columbia,All fuel types,199122,53.726669,-127.647621,734404
+2014,British Columbia,Gasoline,181500,53.726669,-127.647621,673603
+2014,British Columbia,Diesel,13286,53.726669,-127.647621,45924
+2014,British Columbia,Battery electric,541,53.726669,-127.647621,1106
+2014,British Columbia,Hybrid electric,3630,53.726669,-127.647621,13270
+2014,British Columbia,Plug-in hybrid electric,165,53.726669,-127.647621,499
+2014,British Columbia,Other fuel types,0,53.726669,-127.647621,2
+2015,Newfoundland and Labrador,All fuel types,0,53,-60,0
+2015,Newfoundland and Labrador,Gasoline,0,53,-60,0
+2015,Newfoundland and Labrador,Diesel,0,53,-60,0
+2015,Newfoundland and Labrador,Battery electric,0,53,-60,0
+2015,Newfoundland and Labrador,Hybrid electric,0,53,-60,0
+2015,Newfoundland and Labrador,Plug-in hybrid electric,0,53,-60,0
+2015,Newfoundland and Labrador,Other fuel types,0,53,-60,0
+2015,Prince Edward Island,All fuel types,8107,46.25,-63,36519
+2015,Prince Edward Island,Gasoline,7889,46.25,-63,35490
+2015,Prince Edward Island,Diesel,180,46.25,-63,623
+2015,Prince Edward Island,Battery electric,0,46.25,-63,7
+2015,Prince Edward Island,Hybrid electric,38,46.25,-63,396
+2015,Prince Edward Island,Plug-in hybrid electric,0,46.25,-63,3
+2015,Prince Edward Island,Other fuel types,0,46.25,-63,0
+2015,Nova Scotia,All fuel types,0,45,-63,0
+2015,Nova Scotia,Gasoline,0,45,-63,0
+2015,Nova Scotia,Diesel,0,45,-63,0
+2015,Nova Scotia,Battery electric,0,45,-63,0
+2015,Nova Scotia,Hybrid electric,0,45,-63,0
+2015,Nova Scotia,Plug-in hybrid electric,0,45,-63,0
+2015,Nova Scotia,Other fuel types,0,45,-63,0
+2015,New Brunswick,All fuel types,42269,46.49839,-66.159668,207452
+2015,New Brunswick,Gasoline,40891,46.49839,-66.159668,201359
+2015,New Brunswick,Diesel,1164,46.49839,-66.159668,4584
+2015,New Brunswick,Battery electric,4,46.49839,-66.159668,13
+2015,New Brunswick,Hybrid electric,206,46.49839,-66.159668,1467
+2015,New Brunswick,Plug-in hybrid electric,4,46.49839,-66.159668,29
+2015,New Brunswick,Other fuel types,0,46.49839,-66.159668,0
+2015,Quebec,All fuel types,457917,53,-70,2166461
+2015,Quebec,Gasoline,432326,53,-70,2068169
+2015,Quebec,Diesel,17082,53,-70,65652
+2015,Quebec,Battery electric,1717,53,-70,3731
+2015,Quebec,Hybrid electric,5324,53,-70,24181
+2015,Quebec,Plug-in hybrid electric,1467,53,-70,4724
+2015,Quebec,Other fuel types,1,53,-70,4
+2015,Ontario,All fuel types,714204,50,-85,3164309
+2015,Ontario,Gasoline,677435,50,-85,3011242
+2015,Ontario,Diesel,28740,50,-85,114313
+2015,Ontario,Battery electric,1273,50,-85,3256
+2015,Ontario,Hybrid electric,5955,50,-85,32971
+2015,Ontario,Plug-in hybrid electric,800,50,-85,2521
+2015,Ontario,Other fuel types,1,50,-85,6
+2015,Manitoba,All fuel types,55160,53.76086,-98.813873,263433
+2015,Manitoba,Gasoline,52973,53.76086,-98.813873,252754
+2015,Manitoba,Diesel,1868,53.76086,-98.813873,8910
+2015,Manitoba,Battery electric,19,53.76086,-98.813873,57
+2015,Manitoba,Hybrid electric,286,53.76086,-98.813873,1659
+2015,Manitoba,Plug-in hybrid electric,14,53.76086,-98.813873,53
+2015,Manitoba,Other fuel types,0,53.76086,-98.813873,0
+2015,Saskatchewan,All fuel types,59054,55,-106,286652
+2015,Saskatchewan,Gasoline,54447,55,-106,263644
+2015,Saskatchewan,Diesel,4425,55,-106,21916
+2015,Saskatchewan,Battery electric,7,55,-106,24
+2015,Saskatchewan,Hybrid electric,164,55,-106,1025
+2015,Saskatchewan,Plug-in hybrid electric,10,55,-106,39
+2015,Saskatchewan,Other fuel types,1,55,-106,4
+2015,Alberta,All fuel types,0,55,-115,0
+2015,Alberta,Gasoline,0,55,-115,0
+2015,Alberta,Diesel,0,55,-115,0
+2015,Alberta,Battery electric,0,55,-115,0
+2015,Alberta,Hybrid electric,0,55,-115,0
+2015,Alberta,Plug-in hybrid electric,0,55,-115,0
+2015,Alberta,Other fuel types,0,55,-115,0
+2015,British Columbia,All fuel types,213738,53.726669,-127.647621,948142
+2015,British Columbia,Gasoline,195177,53.726669,-127.647621,868780
+2015,British Columbia,Diesel,13516,53.726669,-127.647621,59440
+2015,British Columbia,Battery electric,1024,53.726669,-127.647621,2130
+2015,British Columbia,Hybrid electric,3645,53.726669,-127.647621,16915
+2015,British Columbia,Plug-in hybrid electric,375,53.726669,-127.647621,874
+2015,British Columbia,Other fuel types,1,53.726669,-127.647621,3
+2016,Newfoundland and Labrador,All fuel types,0,53,-60,0
+2016,Newfoundland and Labrador,Gasoline,0,53,-60,0
+2016,Newfoundland and Labrador,Diesel,0,53,-60,0
+2016,Newfoundland and Labrador,Battery electric,0,53,-60,0
+2016,Newfoundland and Labrador,Hybrid electric,0,53,-60,0
+2016,Newfoundland and Labrador,Plug-in hybrid electric,0,53,-60,0
+2016,Newfoundland and Labrador,Other fuel types,0,53,-60,0
+2016,Prince Edward Island,All fuel types,8820,46.25,-63,45339
+2016,Prince Edward Island,Gasoline,8588,46.25,-63,44078
+2016,Prince Edward Island,Diesel,164,46.25,-63,787
+2016,Prince Edward Island,Battery electric,4,46.25,-63,11
+2016,Prince Edward Island,Hybrid electric,61,46.25,-63,457
+2016,Prince Edward Island,Plug-in hybrid electric,3,46.25,-63,6
+2016,Prince Edward Island,Other fuel types,0,46.25,-63,0
+2016,Nova Scotia,All fuel types,0,45,-63,0
+2016,Nova Scotia,Gasoline,0,45,-63,0
+2016,Nova Scotia,Diesel,0,45,-63,0
+2016,Nova Scotia,Battery electric,0,45,-63,0
+2016,Nova Scotia,Hybrid electric,0,45,-63,0
+2016,Nova Scotia,Plug-in hybrid electric,0,45,-63,0
+2016,Nova Scotia,Other fuel types,0,45,-63,0
+2016,New Brunswick,All fuel types,43784,46.49839,-66.159668,251236
+2016,New Brunswick,Gasoline,42580,46.49839,-66.159668,243939
+2016,New Brunswick,Diesel,924,46.49839,-66.159668,5508
+2016,New Brunswick,Battery electric,4,46.49839,-66.159668,17
+2016,New Brunswick,Hybrid electric,244,46.49839,-66.159668,1711
+2016,New Brunswick,Plug-in hybrid electric,32,46.49839,-66.159668,61
+2016,New Brunswick,Other fuel types,0,46.49839,-66.159668,0
+2016,Quebec,All fuel types,463838,53,-70,2630299
+2016,Quebec,Gasoline,439027,53,-70,2507196
+2016,Quebec,Diesel,12654,53,-70,78306
+2016,Quebec,Battery electric,2118,53,-70,5849
+2016,Quebec,Hybrid electric,6816,53,-70,30997
+2016,Quebec,Plug-in hybrid electric,3223,53,-70,7947
+2016,Quebec,Other fuel types,0,53,-70,4
+2016,Ontario,All fuel types,755688,50,-85,3919997
+2016,Ontario,Gasoline,721801,50,-85,3733043
+2016,Ontario,Diesel,22124,50,-85,136437
+2016,Ontario,Battery electric,1471,50,-85,4727
+2016,Ontario,Hybrid electric,7747,50,-85,40718
+2016,Ontario,Plug-in hybrid electric,2541,50,-85,5062
+2016,Ontario,Other fuel types,4,50,-85,10
+2016,Manitoba,All fuel types,54059,53.76086,-98.813873,317492
+2016,Manitoba,Gasoline,52058,53.76086,-98.813873,304812
+2016,Manitoba,Diesel,1630,53.76086,-98.813873,10540
+2016,Manitoba,Battery electric,24,53.76086,-98.813873,81
+2016,Manitoba,Hybrid electric,314,53.76086,-98.813873,1973
+2016,Manitoba,Plug-in hybrid electric,33,53.76086,-98.813873,86
+2016,Manitoba,Other fuel types,0,53.76086,-98.813873,0
+2016,Saskatchewan,All fuel types,54494,55,-106,341146
+2016,Saskatchewan,Gasoline,50198,55,-106,313842
+2016,Saskatchewan,Diesel,4062,55,-106,25978
+2016,Saskatchewan,Battery electric,7,55,-106,31
+2016,Saskatchewan,Hybrid electric,198,55,-106,1223
+2016,Saskatchewan,Plug-in hybrid electric,28,55,-106,67
+2016,Saskatchewan,Other fuel types,1,55,-106,5
+2016,Alberta,All fuel types,0,55,-115,0
+2016,Alberta,Gasoline,0,55,-115,0
+2016,Alberta,Diesel,0,55,-115,0
+2016,Alberta,Battery electric,0,55,-115,0
+2016,Alberta,Hybrid electric,0,55,-115,0
+2016,Alberta,Plug-in hybrid electric,0,55,-115,0
+2016,Alberta,Other fuel types,0,55,-115,0
+2016,British Columbia,All fuel types,222766,53.726669,-127.647621,1170908
+2016,British Columbia,Gasoline,203940,53.726669,-127.647621,1072720
+2016,British Columbia,Diesel,12267,53.726669,-127.647621,71707
+2016,British Columbia,Battery electric,1187,53.726669,-127.647621,3317
+2016,British Columbia,Hybrid electric,4468,53.726669,-127.647621,21383
+2016,British Columbia,Plug-in hybrid electric,904,53.726669,-127.647621,1778
+2016,British Columbia,Other fuel types,0,53.726669,-127.647621,3
+2017,Newfoundland and Labrador,All fuel types,0,53,-60,0
+2017,Newfoundland and Labrador,Gasoline,0,53,-60,0
+2017,Newfoundland and Labrador,Diesel,0,53,-60,0
+2017,Newfoundland and Labrador,Battery electric,0,53,-60,0
+2017,Newfoundland and Labrador,Hybrid electric,0,53,-60,0
+2017,Newfoundland and Labrador,Plug-in hybrid electric,0,53,-60,0
+2017,Newfoundland and Labrador,Other fuel types,0,53,-60,0
+2017,Prince Edward Island,All fuel types,8866,46.25,-63,54205
+2017,Prince Edward Island,Gasoline,8644,46.25,-63,52722
+2017,Prince Edward Island,Diesel,138,46.25,-63,925
+2017,Prince Edward Island,Battery electric,0,46.25,-63,11
+2017,Prince Edward Island,Hybrid electric,78,46.25,-63,535
+2017,Prince Edward Island,Plug-in hybrid electric,6,46.25,-63,12
+2017,Prince Edward Island,Other fuel types,0,46.25,-63,0
+2017,Nova Scotia,All fuel types,0,45,-63,0
+2017,Nova Scotia,Gasoline,0,45,-63,0
+2017,Nova Scotia,Diesel,0,45,-63,0
+2017,Nova Scotia,Battery electric,0,45,-63,0
+2017,Nova Scotia,Hybrid electric,0,45,-63,0
+2017,Nova Scotia,Plug-in hybrid electric,0,45,-63,0
+2017,Nova Scotia,Other fuel types,0,45,-63,0
+2017,New Brunswick,All fuel types,43918,46.49839,-66.159668,295154
+2017,New Brunswick,Gasoline,42672,46.49839,-66.159668,286611
+2017,New Brunswick,Diesel,901,46.49839,-66.159668,6409
+2017,New Brunswick,Battery electric,6,46.49839,-66.159668,23
+2017,New Brunswick,Hybrid electric,307,46.49839,-66.159668,2018
+2017,New Brunswick,Plug-in hybrid electric,32,46.49839,-66.159668,93
+2017,New Brunswick,Other fuel types,0,46.49839,-66.159668,0
+2017,Quebec,All fuel types,477359,53,-70,3107658
+2017,Quebec,Gasoline,452324,53,-70,2959520
+2017,Quebec,Diesel,10601,53,-70,88907
+2017,Quebec,Battery electric,3313,53,-70,9162
+2017,Quebec,Hybrid electric,6336,53,-70,37333
+2017,Quebec,Plug-in hybrid electric,4779,53,-70,12726
+2017,Quebec,Other fuel types,6,53,-70,10
+2017,Ontario,All fuel types,801352,50,-85,4721349
+2017,Ontario,Gasoline,766900,50,-85,4499943
+2017,Ontario,Diesel,17902,50,-85,154339
+2017,Ontario,Battery electric,3531,50,-85,8258
+2017,Ontario,Hybrid electric,8123,50,-85,48841
+2017,Ontario,Plug-in hybrid electric,4895,50,-85,9957
+2017,Ontario,Other fuel types,1,50,-85,11
+2017,Manitoba,All fuel types,58308,53.76086,-98.813873,375800
+2017,Manitoba,Gasoline,56348,53.76086,-98.813873,361160
+2017,Manitoba,Diesel,1542,53.76086,-98.813873,12082
+2017,Manitoba,Battery electric,21,53.76086,-98.813873,102
+2017,Manitoba,Hybrid electric,338,53.76086,-98.813873,2311
+2017,Manitoba,Plug-in hybrid electric,59,53.76086,-98.813873,145
+2017,Manitoba,Other fuel types,0,53.76086,-98.813873,0
+2017,Saskatchewan,All fuel types,56517,55,-106,397663
+2017,Saskatchewan,Gasoline,52617,55,-106,366459
+2017,Saskatchewan,Diesel,3673,55,-106,29651
+2017,Saskatchewan,Battery electric,13,55,-106,44
+2017,Saskatchewan,Hybrid electric,188,55,-106,1411
+2017,Saskatchewan,Plug-in hybrid electric,26,55,-106,93
+2017,Saskatchewan,Other fuel types,0,55,-106,5
+2017,Alberta,All fuel types,0,55,-115,0
+2017,Alberta,Gasoline,0,55,-115,0
+2017,Alberta,Diesel,0,55,-115,0
+2017,Alberta,Battery electric,0,55,-115,0
+2017,Alberta,Hybrid electric,0,55,-115,0
+2017,Alberta,Plug-in hybrid electric,0,55,-115,0
+2017,Alberta,Other fuel types,0,55,-115,0
+2017,British Columbia,All fuel types,239208,53.726669,-127.647621,1410116
+2017,British Columbia,Gasoline,219370,53.726669,-127.647621,1292090
+2017,British Columbia,Diesel,11727,53.726669,-127.647621,83434
+2017,British Columbia,Battery electric,1821,53.726669,-127.647621,5138
+2017,British Columbia,Hybrid electric,5009,53.726669,-127.647621,26392
+2017,British Columbia,Plug-in hybrid electric,1281,53.726669,-127.647621,3059
+2017,British Columbia,Other fuel types,0,53.726669,-127.647621,3
+2018,Newfoundland and Labrador,All fuel types,0,53,-60,0
+2018,Newfoundland and Labrador,Gasoline,0,53,-60,0
+2018,Newfoundland and Labrador,Diesel,0,53,-60,0
+2018,Newfoundland and Labrador,Battery electric,0,53,-60,0
+2018,Newfoundland and Labrador,Hybrid electric,0,53,-60,0
+2018,Newfoundland and Labrador,Plug-in hybrid electric,0,53,-60,0
+2018,Newfoundland and Labrador,Other fuel types,0,53,-60,0
+2018,Prince Edward Island,All fuel types,7949,46.25,-63,62154
+2018,Prince Edward Island,Gasoline,7710,46.25,-63,60432
+2018,Prince Edward Island,Diesel,154,46.25,-63,1079
+2018,Prince Edward Island,Battery electric,10,46.25,-63,21
+2018,Prince Edward Island,Hybrid electric,67,46.25,-63,602
+2018,Prince Edward Island,Plug-in hybrid electric,8,46.25,-63,20
+2018,Prince Edward Island,Other fuel types,0,46.25,-63,0
+2018,Nova Scotia,All fuel types,0,45,-63,0
+2018,Nova Scotia,Gasoline,0,45,-63,0
+2018,Nova Scotia,Diesel,0,45,-63,0
+2018,Nova Scotia,Battery electric,0,45,-63,0
+2018,Nova Scotia,Hybrid electric,0,45,-63,0
+2018,Nova Scotia,Plug-in hybrid electric,0,45,-63,0
+2018,Nova Scotia,Other fuel types,0,45,-63,0
+2018,New Brunswick,All fuel types,40974,46.49839,-66.159668,336128
+2018,New Brunswick,Gasoline,39686,46.49839,-66.159668,326297
+2018,New Brunswick,Diesel,932,46.49839,-66.159668,7341
+2018,New Brunswick,Battery electric,22,46.49839,-66.159668,45
+2018,New Brunswick,Hybrid electric,270,46.49839,-66.159668,2288
+2018,New Brunswick,Plug-in hybrid electric,47,46.49839,-66.159668,140
+2018,New Brunswick,Other fuel types,17,46.49839,-66.159668,17
+2018,Quebec,All fuel types,466987,53,-70,3574645
+2018,Quebec,Gasoline,430617,53,-70,3390137
+2018,Quebec,Diesel,11845,53,-70,100752
+2018,Quebec,Battery electric,8614,53,-70,17776
+2018,Quebec,Hybrid electric,6720,53,-70,44053
+2018,Quebec,Plug-in hybrid electric,9126,53,-70,21852
+2018,Quebec,Other fuel types,65,53,-70,75
+2018,Ontario,All fuel types,798513,50,-85,5519862
+2018,Ontario,Gasoline,751507,50,-85,5251450
+2018,Ontario,Diesel,21483,50,-85,175822
+2018,Ontario,Battery electric,8192,50,-85,16450
+2018,Ontario,Hybrid electric,9130,50,-85,57971
+2018,Ontario,Plug-in hybrid electric,8173,50,-85,18130
+2018,Ontario,Other fuel types,28,50,-85,39
+2018,Manitoba,All fuel types,53981,53.76086,-98.813873,429781
+2018,Manitoba,Gasoline,51965,53.76086,-98.813873,413125
+2018,Manitoba,Diesel,1491,53.76086,-98.813873,13573
+2018,Manitoba,Battery electric,73,53.76086,-98.813873,175
+2018,Manitoba,Hybrid electric,348,53.76086,-98.813873,2659
+2018,Manitoba,Plug-in hybrid electric,101,53.76086,-98.813873,246
+2018,Manitoba,Other fuel types,3,53.76086,-98.813873,3
+2018,Saskatchewan,All fuel types,52382,55,-106,450045
+2018,Saskatchewan,Gasoline,48472,55,-106,414931
+2018,Saskatchewan,Diesel,3593,55,-106,33244
+2018,Saskatchewan,Battery electric,45,55,-106,89
+2018,Saskatchewan,Hybrid electric,229,55,-106,1640
+2018,Saskatchewan,Plug-in hybrid electric,43,55,-106,136
+2018,Saskatchewan,Other fuel types,0,55,-106,5
+2018,Alberta,All fuel types,0,55,-115,0
+2018,Alberta,Gasoline,0,55,-115,0
+2018,Alberta,Diesel,0,55,-115,0
+2018,Alberta,Battery electric,0,55,-115,0
+2018,Alberta,Hybrid electric,0,55,-115,0
+2018,Alberta,Plug-in hybrid electric,0,55,-115,0
+2018,Alberta,Other fuel types,0,55,-115,0
+2018,British Columbia,All fuel types,230092,53.726669,-127.647621,1640208
+2018,British Columbia,Gasoline,202937,53.726669,-127.647621,1495027
+2018,British Columbia,Diesel,13045,53.726669,-127.647621,96479
+2018,British Columbia,Battery electric,5016,53.726669,-127.647621,10154
+2018,British Columbia,Hybrid electric,5971,53.726669,-127.647621,32363
+2018,British Columbia,Plug-in hybrid electric,3113,53.726669,-127.647621,6172
+2018,British Columbia,Other fuel types,10,53.726669,-127.647621,13
