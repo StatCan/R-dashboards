@@ -2,8 +2,11 @@ library(cansim)
 library(tidyverse)
 
 
-nmvs_path <- './data/processed/nmvs.csv'
-nmvr_path <- './data/processed/nmvr.csv'
+# nmvs_path <- './data/processed/nmvs.csv'
+# nmvr_path <- './data/processed/nmvr.csv'
+
+nmvs_path <- '/tmp/ev-data-viz/data/processed/nmvs.csv'
+nmvr_path <- '/tmp/ev-data-viz/data/processed/nmvr.csv'
 
 
 download_nmvr_data <- function() {
@@ -93,4 +96,16 @@ load_dataset <- function(dataset) {
   return (data)
 }
 
+
+get_can_cma_shapes <- function() {
+  # Loads and returns the cma shapes file
+  
+  can_cma_shapes <- 
+    readOGR(
+      dsn = "./data/processed/shapes/can_cma_shapes.shp", 
+      encoding='UTF-8',
+      use_iconv = TRUE)
+  
+  return (can_cma_shapes)
+}
 

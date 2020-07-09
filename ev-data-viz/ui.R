@@ -34,7 +34,7 @@ ui <- bootstrapPage(
     theme = shinytheme('flatly'), title='VRF Data Visualization', id='nav',
              
     tabPanel(textOutput('nmvr_map_view'),
-      div(class='outer', tags$head(includeCSS('styles.css')),
+      div(class='outer', tags$head(includeCSS('./www/styles.css')),
         leafletOutput('mymap', width = '100%', height = '100%'),
         absolutePanel(
           id = 'controls', class = 'panel panel-default', top = 80, left = 20, width = 250, fixed = TRUE,
@@ -81,7 +81,7 @@ ui <- bootstrapPage(
     
     tabPanel(
       textOutput('text_cma_map'),
-      div(class='outer', tags$head(includeCSS('styles.css')),
+      div(class='outer', tags$head(includeCSS('./www/styles.css')),
          leafletOutput('leaflet_cma_map', width = '100%', height = '100%'),
          absolutePanel(
            id = 'controls', class = 'panel panel-default', top =200, left = 20, width = 250, fixed = TRUE,
@@ -94,8 +94,15 @@ ui <- bootstrapPage(
     ), #tab panel
              
     tabPanel(
-      textOutput('report'),
-      downloadButton("btn_download_report", textOutput('generate_report'))),
+      title = textOutput('report'),
+      sidebarLayout(
+        sidebarPanel(
+          uiOutput('select_report_province'),
+          downloadButton("btn_download_report", textOutput('generate_report'))
+        ),
+        mainPanel()
+      ) # side bar layout
+    ), # tab panel
 
     button = actionButton('btn_language', label = textOutput('label_language'))
     

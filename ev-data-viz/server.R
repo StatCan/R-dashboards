@@ -4,7 +4,6 @@ library(plotly)
 library(plyr)
 library(RColorBrewer)
 library(rgdal)
-library(sf)
 library(shiny)
 library(shinyjs)
 library(shinythemes)
@@ -21,33 +20,35 @@ source('load_data.R')
 my_colors <- colorRampPalette(brewer.pal(8, 'Set2'))(15)
 
 # Translations. Inspired by https://github.com/chrislad/multilingualShinyApp
-dictionary_content <- read_csv('data/translation/dictionary.csv')
+dictionary_content <- read_csv('./data/translation/dictionary.csv')
 translation <- dlply(dictionary_content ,.(key), function(s) key = as.list(s))
-
+dictionary_variables <- read_csv('./data/processed/dictionary_variables.csv')
 
 
 server <- function(input, output, session) {
+    
+  reactive_vars <- reactiveValues()
   
   # Translation -------------------------------------------------------------
   
-  vars <- reactiveValues(language = 'en')
+  reactive_vars$language <- 'en'
   
   # Translate text given current language
   tr <- function(text){ 
-    sapply(text,function(s) translation[[s]][[vars$language]], USE.NAMES=FALSE)
+    sapply(text,function(s) translation[[s]][[reactive_vars$language]], USE.NAMES=FALSE)
   }
   
   # Change language
   observeEvent(input$btn_language, {
-    if (vars$language == 'en') {
-      vars$language <- 'fr'
+    if (reactive_vars$language == 'en') {
+      reactive_vars$language <- 'fr'
     } else {
-      vars$language <- 'en'
+      reactive_vars$language <- 'en'
     }
   })
   
   output$label_language <- renderText({
-    vars$language
+    reactive_vars$language
   })
   
   
@@ -66,6 +67,34 @@ server <- function(input, output, session) {
     return (nmvs_data)
   })
   
+  
+  # # Update language of variables in dataset
+  # reactive_nmvr_data <- reactive({
+  #   nmvr_data <- reactive_nmvr_data_load()
+  #   
+  #   if (is.null(nmvr_data)) {return (nmvr_data)}
+  #   
+  #   fuel_types_tr <- dictionary_variables %>% filter(variable == 'fuel_type')
+  #   geo_tr <- dictionary_variables %>% filter(variable == 'geo')
+  #    
+  #   if (reactive_vars$language == 'en') {
+  #     nmvr_data <- nmvr_data %>%
+  #       mutate(
+  #         geo = mapvalues(geo, geo_tr$fr, geo_tr$en, warn_missing = FALSE),
+  #         fuel_type = mapvalues(fuel_type, fuel_types_tr$fr, fuel_types_tr$en, warn_missing = FALSE)
+  #       )
+  #   }
+  # 
+  #   else if (reactive_vars$language == 'fr') {
+  #     nmvr_data <- nmvr_data %>%
+  #       mutate(
+  #         geo = mapvalues(geo, geo_tr$en, geo_tr$fr, warn_missing = FALSE),
+  #         fuel_type = mapvalues(fuel_type, fuel_types_tr$en, fuel_types_tr$fr, warn_missing = FALSE)
+  #       )
+  #   }
+  #   
+  #   return (nmvr_data)
+  # })
   
   
   
@@ -107,15 +136,18 @@ server <- function(input, output, session) {
     
   
   reactive_nmvr_data_year <- reactive({
-    reactive_nmvr_data() %>% filter(year == input$plot_date)
+    reactive_nmvr_data() %>% 
+      dplyr::filter(year == input$plot_date)
   })
    
   reactive_total_new_vehicles <- reactive({
-    reactive_nmvr_data_year() %>% filter(fuel_type == 'All fuel types') %>% pull(amount) %>% sum()
+    reactive_nmvr_data_year() %>% 
+      dplyr::filter(fuel_type == 'All fuel types') %>% pull(amount) %>% sum()
   })
   
   reactive_total_new_zev <- reactive({
-    reactive_nmvr_data_year() %>% filter(fuel_type %in% ev_fuel_types) %>% pull(amount) %>% sum()
+    reactive_nmvr_data_year() %>% 
+      dplyr::filter(fuel_type %in% ev_fuel_types) %>% pull(amount) %>% sum()
   })
   
   reactive_total_new_gv <- reactive({
@@ -186,7 +218,9 @@ server <- function(input, output, session) {
     
     # Add circle markers for each group to the basemap
     for (fuel_typ in fuel_types()) {
-      nmvr_data_filtered <- reactive_nmvr_data_year() %>% filter(fuel_type == fuel_typ)
+      nmvr_data_filtered <- 
+        reactive_nmvr_data_year() %>% 
+        dplyr::filter(fuel_type == fuel_typ)
       amount <- nmvr_data_filtered$amount
       
       leafletProxy('mymap') %>% 
@@ -229,7 +263,7 @@ server <- function(input, output, session) {
       selectInput(
       'province_select', tr('province'),
       choices = provinces(),
-      selected = 'Ontario'
+      selected = provinces()[1]
       )
     )
   })
@@ -243,11 +277,13 @@ server <- function(input, output, session) {
   
   
   reactive_nmvr_data_fuel_type <- reactive({
-    reactive_nmvr_data() %>% filter(fuel_type == input$fuel_type_select)
+    reactive_nmvr_data() %>% 
+      dplyr::filter(fuel_type == input$fuel_type_select)
   })
   
   reactive_nmvr_data_province <- reactive({
-    reactive_nmvr_data() %>% filter(geo == input$province_select)
+    reactive_nmvr_data() %>% 
+      dplyr::filter(geo == input$province_select)
   })
   
   
@@ -270,7 +306,7 @@ server <- function(input, output, session) {
       nmvr_data_plot <- reactive_nmvr_data_fuel_type()
       nmvr_data_plot %>% 
         plot_ly(x = ~year, y = ~cumsum, color = ~geo, colors = my_colors, type = 'scatter', mode = 'lines+markers') %>% 
-        layout(
+        plotly::layout(
           xaxis = list(title = tr('year')),
           yaxis = list(title = tr('number_of_vehicles'), range=c(0, 1.2 * max(nmvr_data_plot$cumsum))),
           title = paste0(tr('total_number_of_vehicles_by_province'), ' - ', input$fuel_type_select)
@@ -281,7 +317,7 @@ server <- function(input, output, session) {
       nmvr_data_plot <- reactive_nmvr_data_province()
       nmvr_data_plot %>% 
         plot_ly(x = ~year, y = ~cumsum, color = ~fuel_type, type = 'scatter', mode = 'lines+markers') %>% 
-        layout(
+        plotly::layout(
           xaxis = list(title = tr('year')),
           yaxis = list(title = tr('number_of_vehicles'), range=c(0, 1.2 * max(nmvr_data_plot$cumsum))),
           title = paste0(tr('total_number_of_vehicles_per_fuel_type'), ' - ', input$province_select)
@@ -294,7 +330,7 @@ server <- function(input, output, session) {
       nmvr_data_plot <- reactive_nmvr_data_fuel_type()
       nmvr_data_plot %>% 
         plot_ly(x = ~year, y = ~amount, color = ~geo, colors = my_colors, type = 'bar') %>% 
-        layout(
+        plotly::layout(
           xaxis = list(title = tr('year')),
           yaxis = list(title = tr('number_of_new_vehicles')),
           title = paste0(tr('total_number_of_new_vehicles_by_provinces'), ' - ', input$fuel_type_select),
@@ -302,10 +338,11 @@ server <- function(input, output, session) {
     }
     
     else if (input$nmvr_group_select == 'Fuel type') {
-      nmvr_data_plot <- reactive_nmvr_data_province() %>% filter(fuel_type != 'All fuel types')
+      nmvr_data_plot <- reactive_nmvr_data_province() %>% 
+        dplyr::filter(fuel_type != 'All fuel types')
       nmvr_data_plot %>% 
         plot_ly(x = ~year, y = ~amount, color = ~fuel_type, type = 'bar') %>% 
-        layout(
+        plotly::layout(
           xaxis = list(title = tr('year')),
           yaxis = list(title = tr('number_of_new_vehicles')),
           title = paste0(tr('total_number_of_new_vehicles_per_fuel_type'), ' - ', input$province_select),
@@ -383,7 +420,7 @@ server <- function(input, output, session) {
   # Filtered data based on select inputs
   reactive_nmvs_data_filtered <- reactive({
     reactive_nmvs_data() %>% 
-      filter(
+      dplyr::filter(
         sales == input$nmvs_select_sale_type,
         origin_of_manufacture == input$nmvs_select_origin_manufacture,
         vehicle_type == input$nmvs_select_vehicle_type
@@ -396,7 +433,7 @@ server <- function(input, output, session) {
     reactive_nmvs_data_filtered() %>% 
       plot_ly(x = ~year, y = ~value, color = ~geo, colors = my_colors,
               type = 'scatter', mode = 'lines+markers', height=600, width=1550) %>% 
-      layout(
+      plotly::layout(
         xaxis = list(title = tr('year')),
         yaxis = list(title = input$nmvs_select_sale_type),
         title = paste0(tr('number_of_new_vehicle_sales'), ' (', input$nmvs_select_sale_type, ')')
@@ -409,14 +446,13 @@ server <- function(input, output, session) {
   # CMA Level view ----------------------------------------------------------
   
   # Load data
+  can_cma_shapes <- get_can_cma_shapes()
   fake_cma <- read_csv('./data/raw/fake_cma.csv')
-  can_prov <- readOGR(dsn = "./data/raw/lcma000b16a_e/lcma000b16a_e.shp")
-  can_cma <- readOGR(dsn = "./data/raw/lcma000b16a_e/lcma000b16a_e.shp")
-  can <- spTransform(can_prov, CRS("+proj=longlat +datum=WGS84"))
 
   cma_max_year <- fake_cma$year %>% max()
   cma_min_year <- fake_cma$year %>% min()
-
+  cma_max_value <- fake_cma$value %>% max()
+  
 
   # UI components
   output$text_fake_data_message <- renderText({
@@ -442,10 +478,13 @@ server <- function(input, output, session) {
 
   # Reactive values
   reactive_cma_data<- reactive({
+    # Small fix since slider value is not set until cma tab is clicked on causing some errors
+    year_select <- if(is.null(input$slider_cma_date)) cma_max_year else input$slider_cma_date
+    
     fake_cma %>%
-    mutate(cmapuid = as.character(cmapuid)) %>% 
-    filter(year == input$slider_cma_date) %>%
-    right_join(can@data, by = c('cmapuid' = 'CMAPUID'))
+      dplyr::mutate(cmapuid = as.character(cmapuid)) %>% 
+      dplyr::filter(year == year_select) %>%
+      right_join(can_cma_shapes@data, by = c('cmapuid' = 'CMAPUID'))
   })
   
   reactive_cma_values <- reactive({
@@ -454,36 +493,58 @@ server <- function(input, output, session) {
   
   reactive_cma_labels <- reactive({
     reactive_cma_data() %>% 
-    mutate(label = paste0("<strong>", CMANAME, "</strong><br/><strong>Value: ", value, "</strong>")) %>%
+    dplyr::mutate(label = paste0("<strong>", CMANAME, "</strong><br/><strong>", tr('yearly_sales'), ": ", value, "</strong>")) %>%
     pull(label) %>%
     lapply(htmltools::HTML)
   })
   
   
-  
   bins_cma <- c(0, 10, 20, 50, 100, 200, 500, 1000, Inf)
   pal_cma <- colorBin("YlOrRd", domain = c(0, max(fake_cma$value)), bins = bins_cma)
   
-  
   # Basemap
   # TODO: highlight ui remains permanent
-  # TODO: use leaflet proxy
   output$leaflet_cma_map <- renderLeaflet({
     leaflet() %>%
       addTiles() %>%
       setView(-95, 55, zoom = 5) %>% 
+      addLegend(
+        'topright',
+        pal = pal_cma,
+        values = c(0, cma_max_value),
+        layerId = 'legend',
+        title = paste0('<small>Amount of vehicles</small>'))
+  })
+  
+  # Update legend for selected language
+  observeEvent(input$btn_language, {
+    leafletProxy('leaflet_cma_map') %>% 
+      removeControl('legend') %>% 
+      addLegend(
+        'topright',
+        pal = pal_cma,
+        values = c(0, cma_max_value),
+        layerId = 'legend',
+        title = paste0('<small>', tr('yearly_sales'), '</small>'))
+  })
+  
+  # Update map for selected year and language
+  observeEvent(c(input$slider_cma_date, input$btn_language), {
+    leafletProxy('leaflet_cma_map') %>%
+      clearShapes() %>%
       addPolygons(
-        data = can,
+        data = can_cma_shapes,
         fillColor = ~pal_cma(reactive_cma_values()),
-        weight = 0,
+        weight = 2,
         fillOpacity = 0.7,
         label = reactive_cma_labels(),
         highlight = highlightOptions(
-          weight = 1,
+          fillColor = 'blue',
           bringToFront = TRUE)
       )
   })
-
+  
+  
   
 
   # Generating Report -------------------------------------------------------
@@ -497,10 +558,21 @@ server <- function(input, output, session) {
     tr('generate_report')
   })
   
+  output$select_report_province <- renderUI({
+    selectInput(
+      inputId = 'select_report_province',
+      label = tr('province'),
+      choices = provinces(),
+      selected = provinces()[1]
+    )
+  })
+  
   
   output$btn_download_report <- downloadHandler(
     # For PDF output, change this to "report.pdf"
-    filename = "report.html",
+    filename = function() {
+        paste0(input$select_report_province, '-report.html')
+      },
     content = function(file) {
       # Copy the report file to a temporary directory before processing it, in
       # case we don't have write permissions to the current working dir (which
@@ -510,7 +582,8 @@ server <- function(input, output, session) {
       
       # Set up parameters to pass to Rmd document
       params <- list(nmvr_data = reactive_nmvr_data(), 
-                     nmvs_data = reactive_nmvs_data())
+                     nmvs_data = reactive_nmvs_data(),
+                     province = input$select_report_province)
       
       # Knit the document, passing in the `params` list, and eval it in a
       # child of the global environment (this isolates the code in the document
@@ -521,7 +594,6 @@ server <- function(input, output, session) {
       )
     }
   )
-  
   
   
 }

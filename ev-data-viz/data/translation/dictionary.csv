@@ -24,4 +24,5 @@ number_of_new_vehicle_sales,Number of new vehicle sales,Nombre de ventes de véh
 report,Report,Rapport
 generate_report,Generate Report,Créer un rapport
 cma_map,CMA Map,RMR carte
-fake_data_message,Contains Fake Data,Contient de fausses données
+fake_data_message,Contains Synthetic Data,Contient de fausses données
+yearly_sales,Yearly sales,Ventes annuelles
