@@ -43,7 +43,7 @@ To test any new/updated dashboards prior to deployment, do the following:
 	docker run \
 	  -p 3838:3838 \
 	  -v $path_to_r_dashboards:/srv/shiny-server \
-	  shiny-test
+	  shiny-server-test
 	```
 * Go to [127.0.0.1:3838](http://127.0.0.1:3838) and test the dashboard
 	* If there's any bugs, fix them locally and iterate above until solved
