@@ -2,12 +2,8 @@ library(cansim)
 library(tidyverse)
 
 
-# nmvs_path <- './data/processed/nmvs.csv'
-# nmvr_path <- './data/processed/nmvr.csv'
-
-nmvs_path <- '/tmp/ev-data-viz/data/processed/nmvs.csv'
-nmvr_path <- '/tmp/ev-data-viz/data/processed/nmvr.csv'
-
+nmvs_path <- './data/processed/nmvs.csv'
+nmvr_path <- './data/processed/nmvr.csv'
 
 download_nmvr_data <- function() {
   ## Download nmvr data using STC API from https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2010002101
