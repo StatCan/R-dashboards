@@ -1,0 +1,26 @@
+variable,en,fr
+fuel_type,All fuel types,Tous les types de carburant
+fuel_type,Gasoline,Essence
+fuel_type,Diesel,Diésel
+fuel_type,Battery electric,Électrique à batterie
+fuel_type,Hybrid electric,Hybride électrique
+fuel_type,Plug-in hybrid electric,Hybride électrique rechargeable
+fuel_type,Other fuel types,Autres types de carburant
+fuel_type,All fuel types,Tous les types de carburant
+fuel_type,Gasoline,Essence
+fuel_type,Diesel,Diésel
+fuel_type,Battery electric,Électrique à batterie
+fuel_type,Hybrid electric,Hybride électrique
+fuel_type,Plug-in hybrid electric,Hybride électrique rechargeable
+fuel_type,Other fuel types,Autres types de carburant
+geo,Canada,Canada
+geo,Newfoundland and Labrador,Terre-Neuve-et-Labrador
+geo,Prince Edward Island,Île-du-Prince-Édouard
+geo,Nova Scotia,Nouvelle-Écosse
+geo,New Brunswick,Nouveau-Brunswick
+geo,Quebec,Québec
+geo,Ontario,Ontario
+geo,Manitoba,Manitoba
+geo,Saskatchewan,Saskatchewan
+geo,Alberta,Alberta
+geo,British Columbia and the Territories,Colombie-Britannique et les Territoires

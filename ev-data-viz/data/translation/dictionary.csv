@@ -1,0 +1,28 @@
+﻿key,en,fr
+app_title,VRF Data Visualisation,VRF visualisation des donneés
+nmvr_map,NMVR Map,IVAN carte
+nmvr_time,NMVR Time Series,IVAN série temporelle
+nmvs_time,NMVS Time Series,VVAN série temporelle
+new_vehicles,new vehicles,véhicules neufs
+new_gas_vehicles,new gas vehicles,véhicules à essence neufs
+new_electric_vehicles,new electric vehicles,véhicules électriques neufs
+year,Year,Année
+amount_of_vehicles,Amount of vehicles,Quantité de véhicules
+group_by,Group by,Par groupe
+province,Province,Province
+fuel_type,Fuel Type,Type de carburant
+number_of_vehicles,Number of vehicles,Nombre de véhicules
+number_of_new_vehicles,Number of new vehicles,Nombre de véhicules neufs
+total_number_of_vehicles_per_fuel_type,Total number of vehicles per fuel type,Nombre total de véhicules par type de carburant
+total_number_of_new_vehicles_per_fuel_type,Total number of new vehicles per fuel type,Nombre total de véhicules neufs par type de carburant
+total_number_of_vehicles_by_province,Total number of vehicles by Province/Territory,Nombre total de véhicules par province/territoire
+total_number_of_new_vehicles_by_provinces,Total number of new vehicles by Province/Territory,Nombre total de véhicules neufs par province/territoire
+sales_type,Sales type,Type de vente
+vehicle_type,Vehicle type,Genre de véhicule
+origins_of_manufacture,Origins of manufacture,Origine de fabrication
+number_of_new_vehicle_sales,Number of new vehicle sales,Nombre de ventes de véhicules neufs 
+report,Report,Rapport
+generate_report,Generate Report,Créer un rapport
+cma_map,CMA Map,RMR carte
+fake_data_message,Contains Synthetic Data,Contient de fausses données
+yearly_sales,Yearly sales,Ventes annuelles
