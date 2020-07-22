@@ -14,7 +14,7 @@ To submit your own dashboard:
 	* Do one of the following:
 		* (Optional but appreciated - this will speed up our review/release process) Test your dashboard against the central shiny implementation by following the **Deployment Testing Instructions** section below.  In particular, identify any packages that are missing from the shiny repo and note them in the text of your PR.
 		* Check this [packages](https://github.com/StatCan/shiny/blob/master/PACKAGES) file to see if all R packages you use are included in the list.  If any are missing, note them in the text of your PR
-* Open a PR to merge your fork into R-dashboards:master
+* Open a PR to merge your fork into R-dashboards:master. Use the flag [WIP] in the PR title to indicate your work in progress and remove it once you are ready to merge.
 	* See [here](https://github.com/StatCan/R-dashboards/pull/16) and [here](https://github.com/StatCan/R-dashboards/pull/17) for example PRs
 
 # Deployment Testing Instructions
@@ -33,7 +33,8 @@ To test any new/updated dashboards prior to deployment, do the following:
 	path_to_r_dashboards=`pwd`
 	cd -
 	```
-* Clone and build the shiny server locally
+* Clone and build the shiny server locally. This requires the (Docker)[https://www.docker.com/] software on your testing machine.
+
 	```
 	git clone https://github.com/StatCan/shiny.git
 	cd shiny
