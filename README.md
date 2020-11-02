@@ -1,4 +1,4 @@
-# R-dashboards
+# R-dashboards!
 
 This repo contains R-shiny dashboards that are hosted on an R-shiny server.  Each subdir here contains a different dashboard, with dashboards accessible at https://shiny.covid.cloud.statcan.ca/<DASHBOARD_DIR_NAME>.
 
