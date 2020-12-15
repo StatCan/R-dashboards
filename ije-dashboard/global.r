@@ -1,4 +1,4 @@
-setwd('/home/jovyan/ije-shiny-2020/data/')
+# setwd('/home/jovyan/ije-shiny-2020/data/')
 beginy = quote(2002)
 endy = quote(2017)
 #install.packages( pkgs = c("classInt"),type="binary", repos = "file:////fld6filer/packagerepo-depotprogiciel/miniCRAN" )
@@ -15,15 +15,15 @@ library(sp)
 library(rgeos)
 # library(rgdal)
 library(htmlwidgets)
-library(aws.s3)
+# library(aws.s3)
 
 options(scipen = 999)
 
-simple_pr_shapefile <- readRDS('simple_pr_shapefile.RDS')
-table_1_2 <- readRDS('table_1_2.RDS')
-table_3478 <- readRDS('table_3478.RDS')
-table_56910 <- readRDS('table_56910.RDS')
-table_11 <- readRDS('table_11.RDS')
+simple_pr_shapefile <- readRDS('./data/simple_pr_shapefile.RDS')
+table_1_2 <- readRDS('./data/table_1_2.RDS')
+table_3478 <- readRDS('./data/table_3478.RDS')
+table_56910 <- readRDS('./data/table_56910.RDS')
+table_11 <- readRDS('./data/table_11.RDS')
 
 
 
@@ -41,10 +41,10 @@ pal <- colorNumeric("viridis", NULL)
 #pal_count_PR <- createClasses(IJE_table1$count , "Blues", "transparent", 5)
 
 ## establish minio connection and list of s3_objects
-source('/home/jovyan/ije-shiny-2020/code/shiny/daaas_storage.R')
-daaas_storage.minimal()
+# source('/home/jovyan/ije-shiny-2020/code/shiny/daaas_storage.R')
+# daaas_storage.minimal()
 
-minio_filist <- get_bucket(bucket='shared',use_https=F,region='',prefix='david-wavrock/ije/')
+# minio_filist <- get_bucket(bucket='shared',use_https=F,region='',prefix='david-wavrock/ije/')
 
 ## to save objects
 # save_object('name-of-object',
