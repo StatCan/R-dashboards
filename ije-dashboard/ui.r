@@ -470,23 +470,23 @@ ui<-fluidPage(
                         tags$style("label{font-family: 'Lobster', cursive;}")), 
                       h3( "The data source for this project is the Canadian Employer-Employee Dynamics Database
                         (CEEDD)"))
-           ),
-           navlistPanel(
-             tabPanel("User Guide",
-                      tags$head(
-                        tags$style("label{font-family: 'Lobster', cursive;}")), 
-                      h3("Click", downloadLink('downloadGuide','Here'), "to Download user Guide" 
-                        ))
-                      
-           ),
-           navlistPanel(
-             tabPanel("Datasets",
-                      tags$head(
-                        tags$style("label{font-family: 'Lobster', cursive;}")), 
-                      h3("Datasets are avaiable for download from", downloadLink('downloadVintage','Here')
-                      ))
-             
-           )    
+           )#,
+           # navlistPanel(
+           #   tabPanel("User Guide",
+           #            tags$head(
+           #              tags$style("label{font-family: 'Lobster', cursive;}")), 
+           #            h3("Click", downloadLink('downloadGuide','Here'), "to Download user Guide" 
+           #              ))
+           #            
+           # ),
+           # navlistPanel(
+           #   tabPanel("Datasets",
+           #            tags$head(
+           #              tags$style("label{font-family: 'Lobster', cursive;}")), 
+           #            h3("Datasets are avaiable for download from", downloadLink('downloadVintage','Here')
+           #            ))
+           #   
+           # )    
            
   )
   
