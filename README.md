@@ -2,6 +2,8 @@
 
 This repo contains R-shiny dashboards that are hosted on an R-shiny server.  Each subdir here contains a different dashboard, with dashboards accessible at https://shiny.covid.cloud.statcan.ca/<DASHBOARD_DIR_NAME>.
 
+**Note: Helping publish dashboards is a core piece of our service, but this particular R-Shiny hosting service may change over time.  We want to help anyone with *public* data that they want to share by a Shiny dashboard, but we cannot guarantee this exactly service will be here forever.**  Likely that means over time the URL and method of submitting/updating dashboards will change over time.
+
 # Submitting a Dashboard
 
 To submit your own dashboard:
