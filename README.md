@@ -6,7 +6,7 @@ subdirectory here contains a different dashboard, with dashboards accessible at
 
 > **⚠ This service may change**  
 > Helping you publish your visualizations is a core part of our service, and we
-> will keep doing that. However, the means of submitting/updating Shiny project
+> will keep doing that. However, the means of submitting/updating Shiny projects
 > – and the URLs they get published to – are likely to change as we improve this
 > service.
 
