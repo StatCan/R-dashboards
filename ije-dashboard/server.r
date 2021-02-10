@@ -34,20 +34,43 @@ server<-function(input, output){
       ),by = c("PRUID" = "PRUID")) 
     
     #color;
-    pal_count_PR <- createClasses(IJE_table1_filted$count , "Blues", "transparent", 5)
-    geo_labels_PR <- sprintf(
-      "<strong>%s (Number of Employee):  %s </strong>",
-      IJE_table1_filted$province, format(IJE_table1_filted$count, big.mark = ",")) %>%
-      lapply(htmltools::HTML) # add labels 
+    if(input$SeriesInput == "Employees"){
+      seriesvar <- IJE_table1_filted$count
+      seriestitle <- 'Number of Inter-Jurisdictional Employees'
+      
+      pal_count_PR <- createClasses(IJE_table1_filted$count , "Blues", "transparent", 5)
+      
+      geo_labels_PR <- sprintf(
+        "<strong>%s (Employees):  %s </strong>",
+        IJE_table1_filted$province, format(IJE_table1_filted$count, big.mark = ",")) %>%
+        lapply(htmltools::HTML) # add labels 
+      
+    } else if(input$SeriesInput == "Income"){
+      
+      seriesvar <- IJE_table1_filted$income
+      seriestitle <- 'Income of Inter-Jurisdictional Employees'
+      
+      pal_count_PR <- createClasses(IJE_table1_filted$income, "Reds", "transparent", 5)
+      
+      geo_labels_PR <- sprintf(
+        "<strong>%s (Income): %s </strong>",
+        IJE_table1_filted$province, format(IJE_table1_filted$income, big.mark = ",")) %>%
+        lapply(htmltools::HTML) # add labels  
+    }
     
-    labels_inc <- sprintf(
-      "<strong>%s (Income): %s </strong>",
-      IJE_table1_filted$province, format(IJE_table1_filted$income, big.mark = ",")) %>%
-      lapply(htmltools::HTML) # add labels  
+    # geo_labels_PR <- sprintf(
+    #   "<strong>%s (Employees):  %s </strong>",
+    #   IJE_table1_filted$province, format(IJE_table1_filted$count, big.mark = ",")) %>%
+    #   lapply(htmltools::HTML) # add labels 
+    # 
+    # labels_inc <- sprintf(
+    #   "<strong>%s (Income): %s </strong>",
+    #   IJE_table1_filted$province, format(IJE_table1_filted$income, big.mark = ",")) %>%
+    #   lapply(htmltools::HTML) # add labels  
     
     PRcount %>%
       addPolygons( data = IJE_table1_filted,stroke = TRUE, color = "#444444", weight = 1, smoothFactor = 0.5,
-                   opacity = 1.0, fillOpacity = 0.5,fillColor = pal_count_PR$pal( IJE_table1_filted$count),group = "count",
+                   opacity = 1.0, fillOpacity = 0.5,fillColor = pal_count_PR$pal(seriesvar),group = "count",
                    highlightOptions = highlightOptions(color = "white", weight = 2,
                                                        bringToFront = FALSE),
                    label = geo_labels_PR,
@@ -59,51 +82,69 @@ server<-function(input, output){
                                  "Number of Employees: ", format(IJE_table1_filted$count, big.mark = ","), "<br>",
                                  "Income: ", format(IJE_table1_filted$income, big.mark = "," ), "<br>")
       )%>% 
-      addCircles(lng = IJE_table1_filted$lon, lat  = IJE_table1_filted$lat, weight = 2, radius = sqrt(IJE_table1_filted$income)*5,opacity = 1.0, fillOpacity = 0.5, fillColor = "transparent",
-                 color="red", label = labels_inc, highlightOptions = highlightOptions(color = "white", weight = 3,
-                                                                                      bringToFront = TRUE), group="Income")%>%
-      addLegend(position ="topright", pal = pal_count_PR$pal, values = IJE_table1_filted$count,
-                opacity = 1, title = "The Number of Inter-jurisdictional Employment", na.label = "No Data")%>%
-      addLayersControl( overlayGroups = c("Income"),
-                        options = layersControlOptions(collapsed = TRUE, autoZIndex=TRUE)) %>%
+      # addCircles(lng = IJE_table1_filted$lon, lat  = IJE_table1_filted$lat, weight = 2, radius = sqrt(IJE_table1_filted$income)*5,opacity = 1.0, fillOpacity = 0.5, fillColor = "transparent",
+      #            color="red", label = labels_inc, highlightOptions = highlightOptions(color = "white", weight = 3,
+      #                                                                                 bringToFront = TRUE), group="Income")%>%
+      addLegend(position ="topright", pal = pal_count_PR$pal, values = seriesvar,
+                opacity = 1, title = seriestitle, na.label = "No Data")%>%
+      # addLayersControl( overlayGroups = c("Income"),
+      #                   options = layersControlOptions(collapsed = TRUE, autoZIndex=TRUE)) %>%
       addScaleBar(position = "bottomleft", options = scaleBarOptions(imperial = FALSE)) 
     
   })
   
-  #PR barplot
-  output$PRbar <-renderPlot({
-    IJE_table1_filted <-
-      table_1_2 %>%
-      filter(year%in% input$YearInput,
-             source %in% input$SourceInput,
-             gender %in% input$GenderInput,
-             type %in% input$TypeInput,
-             income_source %in% input$IncomeSource
-      )
-    
-    ggplot(IJE_table1_filted,aes(x = prn )) +
-      #scale_x_discrete(limits=c('NL','PE','NS','NB','QC','ON','MB','SK','AB','BC','YT','NT','NU'))+
-      #geom_bar(aes(y = count, colour = "Employee"),stat = 'identity')
-      geom_bar(mapping = aes(y = count, colour = "Employee"),stat = 'identity', fill="steelblue3")+
-      #add second dimension
-      geom_line(mapping = aes( y = income/35000,  colour = "Income"),group = 1, size = 2)+
-      #add second y axis
-      scale_y_continuous(name = "Number of Employee", labels = function(c){paste0(format(c, big.mark = ","))} ,
-                         sec.axis = sec_axis(~.*35000, name="Aggregate T4 Earnings",
-                                             labels = function(b){paste0(format(b, big.mark = ","))}))+
-      #define colour
-      scale_colour_manual(values = c("steelblue3", "firebrick3")) +
-      labs(y = "Number of Employee", x = "Province", colour = "Label") +
-      # title
-      ggtitle ("Number of Inter-Jurisdictional Employees and Their T4 Earnings By Province")+
-      #label location
-      theme(legend.position = "none", 
-            axis.title.y= element_text(color = "steelblue3", size = 14),
-            axis.title.y.right = element_text(color = "firebrick3", size = 14), 
-            plot.title = element_text(hjust=0.5, size=16, face="bold"))
-    
-  })
+  ## reactive based on point clicked in map
+  # 
+  # output$clickpoint <- reactive({st_as_sf(data.frame(x=input$PRcount_shape_click[[4]],
+  #                                                    y=input$PRcount_shape_click[[5]]),
+  #                        coords=c('x','y'),crs=4326)})
+  # 
+  # output$clickprov <- reactive({
+  #   simple_pr_shapefile %>%
+  #     mutate(inprov=apply(X=simple_pr_shapefile,MARGIN=1,
+  #                         FUN=function(x) st_contains(x[3]$geometry,output$clickpoint,sparse=F)[1,1])) %>%
+  #     filter(inprov) %>%
+  #     pull(PRENAME) %>%
+  #     renderText()
+  # })
+  # 
+  # output$point_lat <- renderText(input$PRcount_shape_click[[4]])
+  # output$point_lon <- renderText(input$PRcount_shape_click[[5]])
   
+  #PR barplot
+  # output$PRbar <-renderPlot({
+  #   IJE_table1_filted <-
+  #     table_1_2 %>%
+  #     filter(year%in% input$YearInput,
+  #            source %in% input$SourceInput,
+  #            gender %in% input$GenderInput,
+  #            type %in% input$TypeInput,
+  #            income_source %in% input$IncomeSource
+  #     )
+  #   
+  #   ggplot(IJE_table1_filted,aes(x = prn )) +
+  #     #scale_x_discrete(limits=c('NL','PE','NS','NB','QC','ON','MB','SK','AB','BC','YT','NT','NU'))+
+  #     #geom_bar(aes(y = count, colour = "Employee"),stat = 'identity')
+  #     geom_bar(mapping = aes(y = count, colour = "Employee"),stat = 'identity', fill="steelblue3")+
+  #     #add second dimension
+  #     geom_line(mapping = aes( y = income/35000,  colour = "Income"),group = 1, size = 2)+
+  #     #add second y axis
+  #     scale_y_continuous(name = "Number of Employee", labels = function(c){paste0(format(c, big.mark = ","))} ,
+  #                        sec.axis = sec_axis(~.*35000, name="Aggregate T4 Earnings",
+  #                                            labels = function(b){paste0(format(b, big.mark = ","))}))+
+  #     #define colour
+  #     scale_colour_manual(values = c("steelblue3", "firebrick3")) +
+  #     labs(y = "Number of Employee", x = "Province", colour = "Label") +
+  #     # title
+  #     ggtitle ("Number of Inter-Jurisdictional Employees and Their T4 Earnings By Province")+
+  #     #label location
+  #     theme(legend.position = "none", 
+  #           axis.title.y= element_text(color = "steelblue3", size = 14),
+  #           axis.title.y.right = element_text(color = "firebrick3", size = 14), 
+  #           plot.title = element_text(hjust=0.5, size=16, face="bold"))
+  #   
+  # })
+  # 
   #National Level download 
   
   National_filted<- reactive({
@@ -245,7 +286,7 @@ server<-function(input, output){
              source %in% input$DSInput,
              gender %in% input$GDInput,
              type != "Resident",
-             case_when(type == "Receiver" ~ income_source == "Inside the Jurisdiction", T ~ income_source == "Outside the Jurisdiction")
+             case_when(type == "Incoming" ~ income_source == "Inside the Jurisdiction", T ~ income_source == "Outside the Jurisdiction")
       )})
   
   #count trend
@@ -253,10 +294,11 @@ server<-function(input, output){
     ggplot(trend_filted(), aes(x=year, y = count, group=type, color=type)) + 
       geom_line(size=1.2)+
       geom_point(size=3)+
-      labs(y = "Inter-Jurisdictional Employment (Number)", x = "Year")+
+      labs(y = "Number of IJEs", x = "Year")+
       scale_colour_manual(name='Role',values = c("aquamarine4", "yellow3"))+
+      scale_x_continuous(breaks=seq(2002,2017,2))+
       scale_y_continuous(labels = function(c){paste0(format(c, big.mark = ","))})+
-      ggtitle(paste("Inter-Jurisdictional Employment, Yearly"))+
+      ggtitle(paste("Incoming vs. Outgoing Inter-Jurisdictional Employment"))+
       theme(plot.title = element_text(hjust=0.5, size=16, face = "bold"),
             axis.title = element_text(size=12))
   }) 
@@ -268,8 +310,9 @@ server<-function(input, output){
     ggplot(trend_filted(), aes(x=year, y = income, group=type, color=type)) + 
       geom_line(size=1.2)+
       geom_point(size=3)+
-      labs(y = "Aggregate T4 Earnings", x = "Year")+
+      labs(y = "Aggregate T4 Earnings ($)", x = "Year")+
       scale_colour_manual(name='Role',values = c("cyan3", "darkorange2"))+
+      scale_x_continuous(breaks=seq(2002,2017,2))+
       scale_y_continuous(labels = function(c){paste0(format(c, big.mark = ","))})+
       ggtitle("Aggregate T4 Earnings for Inter-Jurisdictional Employees")+
       theme(plot.title = element_text(hjust=0.5, size=16, face = "bold"),
@@ -288,7 +331,7 @@ server<-function(input, output){
              year<= input$YRInput[2],
              source %in% input$DSInput,
              gender %in% input$GDInput,
-             type == "Receiver",
+             type == "Incoming",
              income_source %in% "Inside the Jurisdiction"
       ) 
     
@@ -296,8 +339,10 @@ server<-function(input, output){
       geom_bar(mapping = aes(y = count, colour = "Employee"),stat = 'identity', fill= "aquamarine4")+
       #add second dimension
       geom_line(mapping = aes( y = income/35000),group = 1, size = 2,  colour = "cyan3")+
+      scale_x_continuous(breaks=seq(2002,2017,2))+
+      
       #add second y axis
-      scale_y_continuous(name = "Number of Receiver", 
+      scale_y_continuous(name = "Incoming IJE", 
                          labels = function(c){paste0(format(c, big.mark = ","))} ,
                          sec.axis = sec_axis(~.*35000, name="Aggregate T4 Earnings",
                                              labels = function(b){paste0(format(b, big.mark = ","))}))+
@@ -310,7 +355,7 @@ server<-function(input, output){
             axis.title.y.right = element_text(color = "cyan3", size=12), 
             plot.title = element_text(hjust=0.5, size=16, face="bold"),
             axis.title = element_text(size=12))+
-      ggtitle("Inter-Jurisdictional Receiver Employees and Aggregate T4 Earnings")
+      ggtitle('Incoming Inter-Jurisdictional Employees and Aggregate T4 Earnings')
     
   }) 
   
@@ -323,7 +368,7 @@ server<-function(input, output){
              year<= input$YRInput[2],
              source %in% input$DSInput,
              gender %in% input$GDInput,
-             type == "Sender",
+             type == "Outgoing",
              income_source %in% "Outside the Jurisdiction"
       ) 
     
@@ -331,8 +376,10 @@ server<-function(input, output){
       geom_bar(mapping = aes(y = count, colour = "Employee"),stat = 'identity', fill = "yellow3")+
       #add second dimension
       geom_line(mapping = aes( y = income/35000),group = 1, size = 2,  colour = "darkorange2")+
+      scale_x_continuous(breaks=seq(2002,2017,2))+
+      
       #add second y axis
-      scale_y_continuous(name = "Number of Sender", 
+      scale_y_continuous(name = "Outgoing IJE", 
                          labels = function(c){paste0(format(c, big.mark = ","))} ,
                          sec.axis = sec_axis(~.*35000, name="Aggregate T4 Earnings",                                                                                 
                                              labels = function(b){paste0(format(b, big.mark = ","))}))+
@@ -344,7 +391,7 @@ server<-function(input, output){
              axis.title.y.right = element_text(color = "darkorange2"), 
              plot.title = element_text(hjust=0.5, size=16, face="bold"),
              axis.title = element_text(size=12))+
-      ggtitle("Inter-Jurisdictional Sender Employees and Aggregate T4 Earnings")
+      ggtitle('Outgoing Inter-Jurisdictional Employees and Aggregate T4 Earnings')
     
   }) 
   
@@ -398,111 +445,156 @@ server<-function(input, output){
   
   ###################Industry
   
-  Ind_filted<- reactive({
+  ind_filtered <- reactive({
     table_3478 %>%
       filter(province %in% input$ProIndInput,
              industry %in% input$IndustryInput,
+             type %in% input$IncOutIndustry,
              year>= input$YRInd[1],
-             year<= input$YRInd[2]
-      )})
+             year<= input$YRInd[2]) %>%
+    mutate(industry=factor(industry,levels=c("Agriculture, forestry, fishing and hunting","Oil and gas extraction and support activities",
+                                             "Mining and quarrying (excluding oil and gas)","Utilities","Construction","Manufacturing",
+                                             "Wholesale and Retail trade","Transportation and warehousing",
+                                             "Information and cultural industries; Finance and insurance;\n Real estate and rental and leasing; Management of companies and enterprise",
+                                             "Professional, scientific and technical services","Education services, health care and social assistance",
+                                             "Accommodation and food services","Other services","Public administration","Unknown")))
+    })
   
   #count trend
   
-  output$Indtrend <-renderPlot({
-    
-    ggplot(Ind_filted(), aes(x=year, y = count, group=type, color=type)) + 
-      geom_line(size=1.2)+
-      geom_point(size=3)+
-      labs(y = "Inter-jurisdictional Employment (Number)", x = "Year")+
-      scale_colour_manual(name='Role',values = c("aquamarine4", "yellow3"))+
-      scale_y_continuous(labels = function(c){paste0(format(c, big.mark = ","))})+
-      ggtitle(paste("Inter-jurisdictional Employment of", input$ProIndInput, "in Specificed Industry"))+
-      theme(legend.position =c(0.9,0.9) , 
-            plot.title = element_text(hjust=0.5, size=12, face = "bold"),
+  output$IndCount <- renderPlot({
+    ggplot(ind_filtered(), aes(x=year, y=count, group=industry, color=industry)) +
+      geom_line(size=1.2) + geom_point(size=3) +
+      
+      ggtitle(paste("Inter-Jurisdictional Employment of", input$ProIndInput, "by Industry")) +
+      labs(y = "Number of IJEs", x = "Year") +
+      
+      scale_x_continuous(breaks=seq(2002,2017,2)) + 
+      scale_y_continuous(labels = function(c){paste0(format(c, big.mark = ","))}) +
+      scale_colour_brewer(name='Industry',palette='Paired') +
+      
+      theme(plot.title = element_text(hjust=0.5, size=12, face = "bold"),
             axis.title = element_text(size=12))
   })
   
-  # trend
-  output$IndInctrend <-renderPlot({
-    ggplot(Ind_filted(), aes(x=year, y = income, group=type, color=type)) + 
-      geom_line(size=1.2)+
-      geom_point(size=3)+
-      labs(y = "Aggregate T4 Earnings", x = "Year")+
-      scale_colour_manual(name='Role',values = c("cyan3", "darkorange2"))+
-      scale_y_continuous(labels = function(c){paste0(format(c, big.mark = ","))})+
-      ggtitle(paste("Aggregate T4 Earnings for Inter-Jurisdictional Employees in Specified Industry"))+
-      theme(legend.position =c(0.9,0.9),
-            plot.title = element_text(hjust=0.5, size=12, face = "bold"),
+  output$IndIncome <- renderPlot({
+    ggplot(ind_filtered(), aes(x=year, y=income, group=industry, color=industry)) +
+      geom_line(size=1.2) + geom_point(size=3) +
+      
+      ggtitle(paste("Inter-Jurisdictional Employment Income of", input$ProIndInput, "by Industry")) +
+      labs(y = "Aggregate T4 Earnings ($)", x = "Year") +
+      
+      scale_x_continuous(breaks=seq(2002,2017,2)) + 
+      scale_y_continuous(labels = function(c){paste0(format(c, big.mark = ","))}) +
+      scale_colour_brewer(name='Industry',palette='Paired') +
+      
+      theme(plot.title = element_text(hjust=0.5, size=12, face = "bold"),
             axis.title = element_text(size=12))
-  }) 
-  
-  
-  # receiver and  Sender trend by industry
-  output$Ind_receiver <-renderPlot({
-    table_3478_receive <-
-      table_3478 %>%
-      filter(province %in% input$ProIndInput,
-             industry %in% input$IndustryInput,
-             year>= input$YRInd[1],
-             year<= input$YRInd[2],
-             type == "Receiver"
-      ) 
-    
-    ggplot(table_3478_receive,aes(x = year )) +
-      geom_bar(mapping = aes(y = count, colour = "Employee"),stat = 'identity', fill="aquamarine4")+
-      #add second dimension
-      geom_line(mapping = aes( y = income/35000, colour = "Income"),group = 1, size = 2)+
-      #add second y axis
-      scale_y_continuous(name = "Number of Employee", 
-                         labels = function(c){paste0(format(c, big.mark = ","))} ,
-                         sec.axis = sec_axis(~.*35000, name="Aggregate T4 Earnings",
-                                             labels = function(b){paste0(format(b, big.mark = ","))}))+
-      #define colour
-      scale_colour_manual(values = c("aquamarine4", "cyan3")) +
-      labs(y = "Number of Receiver", x = "Year", colour = "Label") +
-      ggtitle( paste("Receiver and Income in Specified Industry"))+
-      #label location
-      theme( legend.position = "none",
-             axis.title.y= element_text(color = "aquamarine4", size=12),
-             axis.title.y.right = element_text(color = "cyan3", size=12), 
-             plot.title = element_text(hjust=0.5, size=12, face="bold"),
-             axis.title = element_text(size=12))
-    
-  }) 
-  
-  
-  output$Ind_sender <-renderPlot({
-    table_3478_send <-
-      table_3478 %>%
-      filter(province %in% input$ProIndInput,
-             industry %in% input$IndustryInput,
-             year>= input$YRInd[1],
-             year<= input$YRInd[2],
-             type == "Sender"
-      ) 
-    
-    ggplot(table_3478_send,aes(x = year )) +
-      geom_bar(mapping = aes(y = count, colour = "Employee"),stat = 'identity', fill="yellow3")+
-      #add second dimension
-      geom_line(mapping = aes( y = income/35000),group = 1, size = 2,  colour = "darkorange2")+
-      #add second y axis
-      scale_y_continuous(name = "Number of Sender", 
-                         labels = function(c){paste0(format(c, big.mark = ","))} ,
-                         sec.axis = sec_axis(~.*35000, name="Aggregate T4 Earnings",
-                                             labels = function(b){paste0(format(b, big.mark = ","))}))+
-      #define colour
-      scale_colour_manual(values = c("yellow3", "darkorange2")) +
-      labs(y = "Number of Sender", x = "Year", colour = "Label") +
-      ggtitle( paste("Sender and Income in Specified Industry"))+
-      #label location
-      theme( legend.position = "none", 
-             axis.title.y= element_text(color = "yellow3", size=12),
-             axis.title.y.right = element_text(color = "darkorange2", size=12), 
-             plot.title = element_text(hjust=0.5, size=12, face="bold"),
-             axis.title = element_text(size=12))
-    
-  }) 
-  
+  })
+  # 
+  # output$Indtrend <-renderPlot({
+  #   
+  #   ggplot(Ind_filted(), aes(x=year, y = count, group=type, color=type)) + 
+  #     geom_line(size=1.2)+
+  #     geom_point(size=3)+
+  #     labs(y = "Inter-Jurisdictional Employment (Number)", x = "Year")+
+  #     scale_colour_manual(name='Role',values = c("aquamarine4", "yellow3"))+
+  #     scale_x_continuous(breaks=seq(2002,2017,2))+
+  #     
+  #     scale_y_continuous(labels = function(c){paste0(format(c, big.mark = ","))})+
+  #     ggtitle(paste("Inter-Jurisdictional Employment of", input$ProIndInput, "in Specificed Industry"))+
+  #     theme(legend.position =c(0.9,0.9) , 
+  #           plot.title = element_text(hjust=0.5, size=12, face = "bold"),
+  #           axis.title = element_text(size=12))
+  # })
+  # 
+  # # trend
+  # output$IndInctrend <-renderPlot({
+  #   ggplot(Ind_filted(), aes(x=year, y = income, group=type, color=type)) + 
+  #     geom_line(size=1.2)+
+  #     geom_point(size=3)+
+  #     labs(y = "Aggregate T4 Earnings", x = "Year")+
+  #     scale_colour_manual(name='Role',values = c("cyan3", "darkorange2"))+
+  #     scale_x_continuous(breaks=seq(2002,2017,2))+
+  #     
+  #     scale_y_continuous(labels = function(c){paste0(format(c, big.mark = ","))})+
+  #     ggtitle(paste("Aggregate T4 Earnings for Inter-Jurisdictional Employees in Specified Industry"))+
+  #     theme(legend.position =c(0.9,0.9),
+  #           plot.title = element_text(hjust=0.5, size=12, face = "bold"),
+  #           axis.title = element_text(size=12))
+  # }) 
+  # 
+  # 
+  # # receiver and  Sender trend by industry
+  # output$Ind_receiver <-renderPlot({
+  #   table_3478_receive <-
+  #     table_3478 %>%
+  #     filter(province %in% input$ProIndInput,
+  #            industry %in% input$IndustryInput,
+  #            year>= input$YRInd[1],
+  #            year<= input$YRInd[2],
+  #            type == "Incoming"
+  #     ) 
+  #   
+  #   ggplot(table_3478_receive,aes(x = year )) +
+  #     geom_bar(mapping = aes(y = count, colour = "Employees"),stat = 'identity', fill="aquamarine4")+
+  #     #add second dimension
+  #     geom_line(mapping = aes( y = income/35000, colour = "Income"),group = 1, size = 2)+
+  #     scale_x_continuous(breaks=seq(2002,2017,2))+
+  #     
+  #     #add second y axis
+  #     scale_y_continuous(name = "Number of Employees", 
+  #                        labels = function(c){paste0(format(c, big.mark = ","))} ,
+  #                        sec.axis = sec_axis(~.*35000, name="Aggregate T4 Earnings",
+  #                                            labels = function(b){paste0(format(b, big.mark = ","))}))+
+  #     #define colour
+  #     scale_colour_manual(values = c("aquamarine4", "cyan3")) +
+  #     labs(y = "Number of Receiver", x = "Year", colour = "Label") +
+  #     ggtitle( paste("Receiver and Income in Specified Industry"))+
+  #     #label location
+  #     theme( legend.position = "none",
+  #            axis.title.y= element_text(color = "aquamarine4", size=12),
+  #            axis.title.y.right = element_text(color = "cyan3", size=12), 
+  #            plot.title = element_text(hjust=0.5, size=12, face="bold"),
+  #            axis.title = element_text(size=12))
+  #   
+  # }) 
+  # 
+  # 
+  # output$Ind_sender <-renderPlot({
+  #   table_3478_send <-
+  #     table_3478 %>%
+  #     filter(province %in% input$ProIndInput,
+  #            industry %in% input$IndustryInput,
+  #            year>= input$YRInd[1],
+  #            year<= input$YRInd[2],
+  #            type == "Outgoing"
+  #     ) 
+  #   
+  #   ggplot(table_3478_send,aes(x = year )) +
+  #     geom_bar(mapping = aes(y = count, colour = "Employees"),stat = 'identity', fill="yellow3")+
+  #     #add second dimension
+  #     geom_line(mapping = aes( y = income/35000),group = 1, size = 2,  colour = "darkorange2")+
+  #     scale_x_continuous(breaks=seq(2002,2017,2))+
+  #     
+  #     #add second y axis
+  #     scale_y_continuous(name = "Number of Senders", 
+  #                        labels = function(c){paste0(format(c, big.mark = ","))} ,
+  #                        sec.axis = sec_axis(~.*35000, name="Aggregate T4 Earnings",
+  #                                            labels = function(b){paste0(format(b, big.mark = ","))}))+
+  #     #define colour
+  #     scale_colour_manual(values = c("yellow3", "darkorange2")) +
+  #     labs(y = "Number of Senders", x = "Year", colour = "Label") +
+  #     ggtitle( paste("Senders and Income in Specified Industry"))+
+  #     #label location
+  #     theme( legend.position = "none", 
+  #            axis.title.y= element_text(color = "yellow3", size=12),
+  #            axis.title.y.right = element_text(color = "darkorange2", size=12), 
+  #            plot.title = element_text(hjust=0.5, size=12, face="bold"),
+  #            axis.title = element_text(size=12))
+  #   
+  # }) 
+  # 
   
   
   #Industry Trend download tables
@@ -556,113 +648,159 @@ server<-function(input, output){
   
   #TP barplot
   
-  table56910_filted<- reactive({
+  # table56910_filted<- reactive({
+  #   table_56910 %>%
+  #     filter(province %in% input$ProOPInput,
+  #            target_prov %in% input$ProTPInput,
+  #            year>= input$YRTP[1],
+  #            year<= input$YRTP[2]
+  #     )})
+  
+  table56910_filtered <- reactive({
     table_56910 %>%
       filter(province %in% input$ProOPInput,
              target_prov %in% input$ProTPInput,
+             type %in% input$IncOutTgtJuris,
              year>= input$YRTP[1],
-             year<= input$YRTP[2]
-      )})
+             year<= input$YRTP[2]) %>%
+      mutate(target_prov=factor(target_prov,levels=c("Newfoundland and Labrador","Prince Edward Island","Nova Scotia","New Brunswick",
+                                                     "Quebec", "Ontario", "Manitoba","Saskatchewan","Alberta","British Columbia",
+                                                     "Yukon", "Northwest Territories","Nunavut")))
+  })
   
-  
-  
-  
-  output$TPtrend <-renderPlot({
-    
-    ggplot(table56910_filted(), aes(x=year, y = count, group=type, color=type)) + 
-      geom_line(size=1.2)+
-      geom_point(size=3)+
-      labs(y = "Inter-Jurisdictional Employment (Number)", x = "Year")+
-      # add colour
-      scale_colour_manual(name='Role',values = c("aquamarine4", "yellow3"))+
-      scale_y_continuous(labels = function(c){paste0(format(c, big.mark = ","))})+
+  output$TPcount <- renderPlot({
+    ggplot(table56910_filtered(), aes(x=year, y= count, group=target_prov, color=target_prov)) + 
+      geom_line(size=1.2) + geom_point(size=3)+
+      
       ggtitle(paste("Inter-Jurisdictional Employment of", input$ProOPInput))+
-      theme(legend.position =c(0.9,0.9), plot.title = element_text(hjust = 0.5, size = 12, face = "bold"))
-  }) 
-  
-  output$TPInctrend <-renderPlot({
-    
-    ggplot(table56910_filted(), aes(x=year, y = income, group=type, color=type)) + 
-      geom_line(size=1.2)+
-      geom_point(size=3)+
-      labs(y = "Aggregate T4 Earnings", x = "Year")+
-      # add colour
-      scale_colour_manual(name='Role',values = c("cyan3", "darkorange2"))+
+      theme(plot.title = element_text(hjust = 0.5, size = 12, face = "bold")) +
+      labs(x='Year', y='Number of IJEs') +
+      
+      scale_x_continuous(breaks=seq(2002,2017,2))+
       scale_y_continuous(labels = function(c){paste0(format(c, big.mark = ","))})+
-      ggtitle("Aggregate T4 Earnings for Inter-Jurisdictional Employees")+
-      theme(legend.position =c(0.9,0.9), plot.title = element_text(hjust = 0.5, size = 12, face = "bold"))
-  }) 
+      scale_color_brewer(name='Province',palette='Paired')
+  })
   
-  #TP comparison 
-  table56910_filted_1<- reactive({
-    table_56910%>%
-      filter(province %in% input$ProOPInput,
-             target_prov %in% input$ProTPInput,
-             year>= input$YRTP[1],
-             year<= input$YRTP[2],
-             type == "Receiver"
-      )})
-  
-  table56910_filted_2<- reactive({
-    table_56910%>%
-      filter(province %in% input$ProOPInput,
-             target_prov %in% input$ProTPInput,
-             year>= input$YRTP[1],
-             year<= input$YRTP[2],
-             type == "Sender"
-      )}) 
-  
-  output$TPComp <-renderPlot({
-    ggplot(table56910_filted_1(),aes(x = year )) +
-      geom_bar(mapping = aes(y = count, colour = "Employee"),stat = 'identity', fill="aquamarine4")+
-      #add second dimension
-      geom_line(mapping = aes( y = income/35000, colour = "Income"),group = 1, size = 2)+
-      #add second y axis
-      scale_y_continuous(name = "Number of Receiver", 
-                         labels = function(c){paste0(format(c, big.mark = ","))} ,
-                         sec.axis = sec_axis(~.*35000, name="Aggregate T4 Earnings",
-                                             labels = function(b){paste0(format(b, big.mark = ","))}))+
-      #define colour
-      scale_colour_manual(values = c("aquamarine4", "cyan3")) +
-      labs(y = "Number of Receiver", x = "Year", colour = "Label") +
-      ggtitle( paste("Inter-Jurisdictional Receiver and T4 Income in", input$ProOPInput))+
-      #label location
-      theme( legend.position = "none", 
-             axis.title.y= element_text(color = "aquamarine4", size=12),
-             axis.title.y.right = element_text(color = "cyan3", size=12), 
-             plot.title = element_text(hjust=0.5, size=12, face="bold"),
-             axis.title = element_text(size=12))
-  }) 
-  
-  
-  
-  output$TPCompInc <-renderPlot({
-    ggplot(table56910_filted_2(),aes(x = year )) +
-      geom_bar(mapping = aes(y = count, colour = "Employee"),stat = 'identity', fill="yellow3")+
-      #add second dimension
-      geom_line(mapping = aes( y = income/35000, colour = "Income"),group = 1, size = 2)+
-      #add second y axis
-      scale_y_continuous(name = "Number of Sender", 
-                         labels = function(c){paste0(format(c, big.mark = ","))} ,
-                         sec.axis = sec_axis(~.*35000, name="Aggregate T4 Earnings",
-                                             labels = function(b){paste0(format(b, big.mark = ","))}))+
-      #define colour
-      scale_colour_manual(values = c("yellow3", "darkorange2")) +
-      labs(y = "Number of Sender", x = "Year", colour = "Label") +
-      ggtitle( paste("Inter-Jurisdictional Sender and T4 Income in", input$ProOPInput))+
-      #label location
-      theme( legend.position = "none", 
-             axis.title.y= element_text(color = "yellow3", size=12),
-             axis.title.y.right = element_text(color = "darkorange2", size=12), 
-             plot.title = element_text(hjust=0.5, size=12, face="bold"),
-             axis.title = element_text(size=12))
-    
-  }) 
-  
+  output$TPincome <- renderPlot({
+    ggplot(table56910_filtered(), aes(x=year, y= income, group=target_prov, color=target_prov)) + 
+      geom_line(size=1.2) + geom_point(size=3)+
+      
+      ggtitle(paste("Inter-Jurisdictional Employment Income of", input$ProOPInput))+
+      theme(plot.title = element_text(hjust = 0.5, size = 12, face = "bold")) +
+      labs(x='Year', y='Aggregate T4 Earnings ($)') +
+      
+      scale_x_continuous(breaks=seq(2002,2017,2))+
+      scale_y_continuous(labels = function(c){paste0(format(c, big.mark = ","))})+
+      scale_color_brewer(name='Province',palette='Paired')
+  })
+  # 
+  # output$TPtrend <-renderPlot({
+  #   
+  #   ggplot(table56910_filted(), aes(x=year, y = count, group=type, color=type)) + 
+  #     geom_line(size=1.2)+
+  #     geom_point(size=3)+
+  #     labs(y = "Inter-Jurisdictional Employment (Number)", x = "Year")+
+  #     # add colour
+  #     scale_colour_manual(name='Role',values = c("aquamarine4", "yellow3"))+
+  #     scale_x_continuous(breaks=seq(2002,2017,2))+
+  #     
+  #     scale_y_continuous(labels = function(c){paste0(format(c, big.mark = ","))})+
+  #     ggtitle(paste("Inter-Jurisdictional Employment of", input$ProOPInput))+
+  #     theme(legend.position =c(0.9,0.9), plot.title = element_text(hjust = 0.5, size = 12, face = "bold"))
+  # }) 
+  # 
+  # output$TPInctrend <-renderPlot({
+  #   
+  #   ggplot(table56910_filted(), aes(x=year, y = income, group=type, color=type)) + 
+  #     geom_line(size=1.2)+
+  #     geom_point(size=3)+
+  #     labs(y = "Aggregate T4 Earnings", x = "Year")+
+  #     # add colour
+  #     scale_colour_manual(name='Role',values = c("cyan3", "darkorange2"))+
+  #     scale_x_continuous(breaks=seq(2002,2017,2))+
+  #     
+  #     scale_y_continuous(labels = function(c){paste0(format(c, big.mark = ","))})+
+  #     ggtitle("Aggregate T4 Earnings for Inter-Jurisdictional Employees")+
+  #     theme(legend.position =c(0.9,0.9), plot.title = element_text(hjust = 0.5, size = 12, face = "bold"))
+  # }) 
+  # 
+  # #TP comparison 
+  # table56910_filted_1<- reactive({
+  #   table_56910%>%
+  #     filter(province %in% input$ProOPInput,
+  #            target_prov %in% input$ProTPInput,
+  #            year>= input$YRTP[1],
+  #            year<= input$YRTP[2],
+  #            type == "Incoming"
+  #     )})
+  # 
+  # table56910_filted_2<- reactive({
+  #   table_56910%>%
+  #     filter(province %in% input$ProOPInput,
+  #            target_prov %in% input$ProTPInput,
+  #            year>= input$YRTP[1],
+  #            year<= input$YRTP[2],
+  #            type == "Outgoing"
+  #     )}) 
+  # 
+  # output$TPComp <-renderPlot({
+  #   ggplot(table56910_filted_1(),aes(x = year )) +
+  #     geom_bar(mapping = aes(y = count, colour = "Employee"),stat = 'identity', fill="aquamarine4")+
+  #     #add second dimension
+  #     geom_line(mapping = aes( y = income/35000, colour = "Income"),group = 1, size = 2)+
+  #     scale_x_continuous(breaks=seq(2002,2017,2))+
+  #     
+  #     #add second y axis
+  #     scale_y_continuous(name = "Number of Receiver", 
+  #                        labels = function(c){paste0(format(c, big.mark = ","))} ,
+  #                        sec.axis = sec_axis(~.*35000, name="Aggregate T4 Earnings",
+  #                                            labels = function(b){paste0(format(b, big.mark = ","))}))+
+  #     #define colour
+  #     scale_colour_manual(values = c("aquamarine4", "cyan3")) +
+  #     labs(y = "Number of Receiver", x = "Year", colour = "Label") +
+  #     ggtitle( paste("Inter-Jurisdictional Receiver and T4 Income in", input$ProOPInput))+
+  #     #label location
+  #     theme( legend.position = "none", 
+  #            axis.title.y= element_text(color = "aquamarine4", size=12),
+  #            axis.title.y.right = element_text(color = "cyan3", size=12), 
+  #            plot.title = element_text(hjust=0.5, size=12, face="bold"),
+  #            axis.title = element_text(size=12))
+  # }) 
+  # 
+  # 
+  # 
+  # output$TPCompInc <-renderPlot({
+  #   ggplot(table56910_filted_2(),aes(x = year )) +
+  #     geom_bar(mapping = aes(y = count, colour = "Employee"),stat = 'identity', fill="yellow3")+
+  #     #add second dimension
+  #     geom_line(mapping = aes( y = income/35000, colour = "Income"),group = 1, size = 2)+
+  #     scale_x_continuous(breaks=seq(2002,2017,2))+
+  #     
+  #     #add second y axis
+  #     scale_y_continuous(name = "Number of Sender", 
+  #                        labels = function(c){paste0(format(c, big.mark = ","))} ,
+  #                        sec.axis = sec_axis(~.*35000, name="Aggregate T4 Earnings",
+  #                                            labels = function(b){paste0(format(b, big.mark = ","))}))+
+  #     #define colour
+  #     scale_colour_manual(values = c("yellow3", "darkorange2")) +
+  #     labs(y = "Number of Sender", x = "Year", colour = "Label") +
+  #     ggtitle( paste("Inter-Jurisdictional Sender and T4 Income in", input$ProOPInput))+
+  #     #label location
+  #     theme( legend.position = "none", 
+  #            axis.title.y= element_text(color = "yellow3", size=12),
+  #            axis.title.y.right = element_text(color = "darkorange2", size=12), 
+  #            plot.title = element_text(hjust=0.5, size=12, face="bold"),
+  #            axis.title = element_text(size=12))
+  #   
+  # }) 
+  # 
   
   
   
   ################### Age Group 
+  
+  agePalette <- paste0('#',c('F8766D','B79F00','00BA38','00BFC4','619CFF','F564E3'))
+  names(agePalette) <- unique(table_11$age_group)
   
   table11_filted<- reactive({
     table_11 %>%
@@ -679,10 +817,12 @@ server<-function(input, output){
     ggplot(table11_filted(), aes(x=year, y = count, group=age_group, color=age_group)) + 
       geom_line(size=1.2)+
       geom_point(size=3)+
-      labs(y = "Number of Employee", x = "Year")+
+      labs(y = "Number of IJEs", x = "Year")+
+      scale_x_continuous(breaks=seq(2002,2017,2))+
+      
       scale_y_continuous(labels = function(c){paste0(format(c, big.mark = ","))})+
-      scale_color_discrete(name='Age Group') +
-      ggtitle("Number of Employees by Age Group")+
+      scale_color_manual(name='Age Group',values=agePalette) +
+      ggtitle("Number of IJEs by Age Group")+
       theme(plot.title = element_text(hjust=0.5, size=16, face = "bold"))
   }) 
   
@@ -702,10 +842,10 @@ server<-function(input, output){
     
     ggplot(table11_filted, aes(x=age_group, color=age_group, fill=age_group)) + 
       geom_histogram(mapping = aes(y = pct_change), position = "dodge",stat = 'identity')+
-      labs(y = "Percentage Changes of Employment", x = "Age Groups")+
+      labs(y = "Percentage Change of Employment", x = "Age Groups")+
       scale_y_continuous(labels = scales::percent_format(accuracy = 1))+
-      scale_fill_discrete(name='Age Group') +
-      scale_color_discrete(name='Age Group') +
+      scale_fill_manual(name='Age Group',values=agePalette) +
+      scale_color_manual(name='Age Group',values=agePalette) +
       theme(axis.text.x = element_text(angle = 45, hjust = 1))+
       ggtitle(paste("Percentage Changes of Employment by Age Group from", input$YRAge[1], "to", input$YRAge[2]))+
       theme(plot.title = element_text(hjust=0.5, size=16, face = "bold"))
@@ -772,29 +912,25 @@ server<-function(input, output){
     }
   )
   
-  # output$downloadGuide <- downloadHandler(
-  #   filename = 'Methodological Guide on IJEs-ENGLISH-Dec.2017.pdf',
-  #   
-  #   content = function(infile){
-  #     save_object('david-wavrock/ije/Methodological Guide on IJEs-ENGLISH-Dec.2017.pdf',bucket=minio_filist,use_https=F,region='',file=infile)
-  #   }
-  # )
-  
-  # output$downloadVintage <- downloadHandler(
-  #   filename = 'English_Version.zip',
-  #   
-  #   content = function(infile){
-  #     save_object('david-wavrock/ije/English_Version.zip',bucket=minio_filist,use_https=F,region='',file=infile)
-  #   }
-  #   
-  # )
-  
-  
-  
-  
-  
-  
-  
-  
+  output$downloadGuide <- downloadHandler(
+    filename = 'Methodological Guide on IJEs-ENGLISH-Dec.2017.pdf',
+
+    content = function(infile){
+      file.copy('./data/downloadables/Methodological Guide on IJEs-ENGLISH-Dec.2017.pdf',infile)
+      # save_object('david-wavrock/ije/Methodological Guide on IJEs-ENGLISH-Dec.2017.pdf',bucket=minio_filist,use_https=F,region='',file=infile)
+    }
+  )
+
+  output$downloadVintage <- downloadHandler(
+    filename = 'English_Version.zip',
+
+    content = function(infile){
+      # zip(zipfile=infile,files=list.files('./data/downloadables/English_Version'),flags='-j')
+      file.copy('./data/downloadables/English_Version.zip',infile)
+      # save_object('david-wavrock/ije/English_Version.zip',bucket=minio_filist,use_https=F,region='',file=infile)
+    },
+    contentType = 'application/zip'
+
+  )
   
 }
