@@ -1,0 +1,12 @@
+code,en,fr,region,colour,alphacode,pr_en,pr_fr
+1,Newfoundland and Labrador,Terre-Neuve-et-Labrador,1,#144814,NL,N.L.,T.-N.-L.
+2,Prince Edward Island,Île-du-Prince-Édouard,1,#0E5A0E,PE,P.E.I.,Î.-P.-É.
+3,Nova Scotia,Nouvelle-Écosse,1,#076D07,NS,N.S.,N.-É.
+4,New Brunswick,Nouveau-Brunswick,1,#008000,NB,N.B.,N.-B.
+5,Quebec,Québec,2,#003399,QC,Que.,Qc
+6,Ontario,Ontario,3,#FF0000,ON,Ont.,Ont.
+7,Manitoba,Manitoba,4,#222222,MB,Man.,Man.
+8,Saskatchewan,Saskatchewan,4,#6C5E17,SK,Sask.,Sask.
+9,Alberta,Alberta,4,#B59B0B,AB,Alta.,Alb.
+10,British Columbia,Colombie-Britannique,4,#FFD700,BC,B.C.,C.-B.
+11,Territories,Territoires,5,#C4C4C4,TR,Terr.,Terr.
