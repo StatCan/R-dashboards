@@ -2,6 +2,8 @@
 author / auteur : Hyeongsuk Jin
 ---
 
+[https://shiny.covid.cloud.statcan.ca/rais-mobility/](https://shiny.covid.cloud.statcan.ca/rais-mobility/)
+
 # R Shiny app for movements of journeypersons
 
 A data visualization application to help understand trends and patterns in the mobility of certified journeypersons in Canada.
@@ -22,4 +24,4 @@ Données du Statistics Canada [Tableau 37-10-0154-01](https://www150.statcan.gc.
 
 Pour les concepts et définitions utilisés, veuillez consulter le [guide de référence](https://www150.statcan.gc.ca/n1/fr/catalogue/37200001).
 
-Le diagramme de corde est généré à l'aide du paquet [circlize](https://cran.r-project.org/package=circlize), réalisé par Zugang Gu. Pour plus d'informations sur le package, veuillez consulter son livre [Circular Visualization in R](https://jokergoo.github.io/circlize_book/book/) (en anglais seulement).
+Le diagramme à cordes est généré à l'aide du paquet [circlize](https://cran.r-project.org/package=circlize), réalisé par Zugang Gu. Pour plus d'informations sur le paquet, veuillez consulter son livre [Circular Visualization in R](https://jokergoo.github.io/circlize_book/book/) (en anglais).
