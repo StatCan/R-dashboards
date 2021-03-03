@@ -29,7 +29,7 @@ df[, dims] <- sapply(df[, dims], as.numeric)
 out_df <- df %>%
   filter(to > 4) %>%
   mutate(to = to - 4, dim_mode = 1, dim_type = 1) %>%
-  filter(!is.na(VALUE) & VALUE > 0)
+  filter(!is.na(VALUE) & VALUE > 0 & from != to)
 
 dims <- c("from", "dim_trad", "dim_mode", "dim_years", "dim_type", "to")
 
