@@ -69,38 +69,31 @@ output$time_control <- renderUI({
 })
 
 # trade
-# the table 0154 has the list in a different order from the table 0204
 output$trade_control <- renderUI({
   selectInput(
     inputId = "trade",
     label = i18n$t("Selected trades"),
-    # choices = setNames(1:4, selected_dict()[c(8, 10:12)]),
-    choices = setNames(c(4, 1:3), selected_dict()[c(8, 10:12)]),
-    # selected = 1
-    selected = 4
+    choices = setNames(1:5, selected_dict()[c(8:12)]),
+    selected = 1
   )
 })
 
 # mode of certification
-# the table 0154 does not have this dimension.
 output$mode_control <- renderUI({
   selectInput(
     inputId = "mode",
     label = i18n$t("Modes of certification"),
-    # choices = setNames(1:3, selected_dict()[13:15]),
-    choices = setNames(1, selected_dict()[14:14]),
+    choices = setNames(1:3, selected_dict()[13:15]),
     selected = 1
   )
 })
 
 # type of mobility
-# the table 0154 does not have this dimension.
 output$type_control <- renderUI({
   selectInput(
     inputId = "type",
     label = i18n$t("Types of mobility"),
-    # choices = setNames(1:3, selected_dict()[18:20]),
-    choices = setNames(1, selected_dict()[19:19]),
+    choices = setNames(1:3, selected_dict()[18:20]),
     selected = 1
   )
 })
@@ -123,11 +116,11 @@ output$region_selection <- renderUI({
 output$text1 <- renderUI({
   if (input$selected_language == "en") {
     url <-
-      a("Table 37-10-0154-01", href = "https://doi.org/10.25318/3710015401-eng")
+      a("Table 37-10-0204-01", href = "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3710020401")
     tagList("Statistics Canada. ", url)
   } else {
     url <-
-      a("Tableau 37-10-0154-01", href = "https://doi.org/10.25318/3710015401-fra")
+      a("Tableau 37-10-0204-01", href = "https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=3710020401")
     tagList("Statistique Canada. ", url)
   }
 })
@@ -142,7 +135,7 @@ output$text2 <- renderUI({
   } else {
     url <-
       a("le guide de référence", href = "https://www150.statcan.gc.ca/n1/fr/catalogue/37200001")
-    tagList("Voir ", url, " pour les définitions.")
+    tagList("Consultez ", url, " pour les définitions.")
   }
 })
 
