@@ -16,6 +16,7 @@ library(rgeos)
 # library(rgdal)
 library(htmlwidgets)
 # library(aws.s3)
+library(RColorBrewer)
 
 options(scipen = 999)
 
@@ -24,7 +25,6 @@ table_1_2 <- readRDS('./data/table_1_2.RDS')
 table_3478 <- readRDS('./data/table_3478.RDS')
 table_56910 <- readRDS('./data/table_56910.RDS')
 table_11 <- readRDS('./data/table_11.RDS')
-
 
 
 createClasses <- function(data, palette, na_color, n) {

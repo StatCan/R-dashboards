@@ -136,7 +136,6 @@ output$text2 <- renderUI({
     url <-
       a("le guide de référence", href = "https://www150.statcan.gc.ca/n1/fr/catalogue/37200001")
     tagList("Consultez ", url, " pour les définitions.")
-  }
 })
 
 output$outPlot <- renderPlot({
