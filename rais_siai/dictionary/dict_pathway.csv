@@ -1,0 +1,84 @@
+key,en,fr
+lab_geo,Geography,Géographie
+lab_year,Year of registration,Année d'inscription
+lab_time,Time range,Plage de temps
+lab_trade,Trades,Métiers
+lab_trade_grp,Trade group,Groupe des métiers
+lab_rs,Selected Red Seal trades,Métiers Sceau rouge sélectionnés
+lab_nrs,Selected non-Red Seal trades,Métiers non-Sceau rouge sélectionnés
+lab_sex,Sex,Sexe
+lab_comp,Compare by,Comparer par
+mem_geo,Canada,Canada
+mem_geo,Atlantic Region,Région de l'Atlantique
+mem_geo,Newfoundland and Labrador,Terre-Neuve-et-Labrador
+mem_geo,Prince Edward Island,Île-du-Prince-Édouard
+mem_geo,Nova Scotia,Nouvelle-Écosse
+mem_geo,New Brunswick,Nouveau-Brunswick
+mem_geo,Quebec,Québec
+mem_geo,Ontario,Ontario
+mem_geo,Manitoba,Manitoba
+mem_geo,Saskatchewan,Saskatchewan
+mem_geo,Alberta,Alberta
+mem_geo,British Columbia,Colombie-Britannique
+mem_geo,Territories,Territoires
+mem_trade_grp,All trades,Tous les métiers
+mem_trade_grp,All Red Seal trades,Tous les métiers Sceau rouge
+mem_trade_grp,Selected Red Seal trades,Métiers Sceau rouge sélectionnés
+mem_trade_rs,Agricultural equipment technician,Mécanicien/mécanicienne de machinerie agricole
+mem_trade_rs,Automotive service technician,Mécanicien/mécanicienne de véhicules automobiles
+mem_trade_rs,Bricklayer,Briqueteur-maçon/briqueteuse-maçonne
+mem_trade_rs,Carpenter,Charpentier/charpentière
+mem_trade_rs,Construction electrician,Électricien/électricienne (construction)
+mem_trade_rs,Cook,Cuisinier/cuisinière
+mem_trade_rs,Crane operator,Grutiers/grutières
+mem_trade_rs,Hairstylists and barbers,Coiffeurs/coiffeuses et barbiers/barbières
+mem_trade_rs,Heavy duty equipment technician,Mécanicien/mécanicienne d'équipement lourd
+mem_trade_rs,Industrial electrician,Électricien industriel/électricienne industrielle
+mem_trade_rs,Industrial instrumentation and control technician,Technicien/technicienne en instrumentation industrielle et contrôle
+mem_trade_rs,Industrial mechanic (millwright),Mécanicien industriel/mécanicienne industrielle (de chantier)
+mem_trade_rs,Ironworker,Monteur/monteuse de charpente d'acier
+mem_trade_rs,Landscape horticulturist,Horticulteur-paysagiste/horticultrice-paysagiste
+mem_trade_rs,Machinist,Machiniste
+mem_trade_rs,Motor vehicle body repairer,Débosseleur-peintre/débosseleuse-peintre
+mem_trade_rs,Painter and decorator,Peintre et décorateur/décoratrice
+mem_trade_rs,Plumber,Plombier/plombière
+mem_trade_rs,Powerline technician,Monteur/monteuse de lignes sous tension
+mem_trade_rs,Refrigeration and air conditioning mechanic,Mécanicien/mécanicienne en réfrigération et d'air climatisé
+mem_trade_rs,Roofer,Couvreur/couvreuse
+mem_trade_rs,Sheet metal worker,Ferblantier/ferblantière
+mem_trade_rs,Steamfitter - pipefitter,Monteur/monteuse d'appareils de chauffage
+mem_trade_rs,Truck and transport mechanic,Mécanicien/mécanicienne de camions et transport
+mem_trade_rs,Welder,Soudeur/soudeuse
+mem_trade_grp,Other Red Seal trades,Autres métiers Sceau rouge
+mem_trade_grp,All non-Red Seal trades,Tous les métiers non-Sceau rouge
+mem_trade_nrs,Child and youth worker,Assistant social/assistante sociale auprès des jeunes
+mem_trade_nrs,Developmental services worker,Travailleur/travailleuse de services de développement
+mem_trade_nrs,Early childhood educator,Éducateur/éducatrice de la petite enfance
+mem_trade_nrs,Educational assistant,Aide-enseignant/aide-enseignante
+mem_trade_nrs,Esthetician,Esthéticien/esthéticienne
+mem_trade_grp,Selected non-Red Seal trades,Métiers non-Sceau rouge sélectionnés
+mem_trade_grp,Other non-Red Seal trades,Autres métiers non-Sceau rouge
+sex_mem,Both sexes,Les deux sexes
+sex_mem,Males,Hommes
+sex_mem,Females,Femmes
+cohort,Cohort size,Taille de la cohorte
+dur_pgm,Program duration,Durée du programme
+age_reg,Median age at registration,Âge médian au moment de l'inscription
+rate_cert,Certification,Certification
+rate_cont,Continuation,Persévérance
+rate_disc,Discontinuation,Abandon
+mem_comp,Trades,Métiers
+mem_comp,Geography,Géographie
+mem_comp,Year of registration,Année d'inscription
+mem_time,Within program duration,Au cours de la durée du programme
+mem_time,Within 1.5 times program duration,"Au cours d'une période équivalente à 1,5 fois la durée du programme"
+mem_time,Within 2 times program duration,Au cours d'une période équivalente à 2 fois la durée du programme
+mesg_val,Data is not available. Please change the selection.,Les données ne sont pas disponibles. Veuillez modifier la sélection.
+age_cert,Median age at certification,Âge médian lors de l'obtention du certificat
+time_cert,Median time to certification,Délai médian d'obtention de la certification
+time_disc,Median time to discontinuation,Délai médian d'abandon
+sAll_lbl,Select All,Sélectionnez tout
+dsAll_lbl,Deselect All,Désélectionner tout
+f_mesg,Data is too unreliable to be published,Les données sont trop peu fiable pour être publié
+text_no_trade,Select trades,Sélectionnez des métiers
+text_no_geo,Select regions,Sélectionnez des régions

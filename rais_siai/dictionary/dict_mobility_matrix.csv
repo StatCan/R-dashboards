@@ -1,0 +1,39 @@
+key,en,fr
+title_mob_matrix,Interprovincial mobility - origin and destination,Mobilité interprovinciale origine et destination
+lab_cert_year,Year of certification,Année d'obtention du certificat
+lab_trade,Selected trades,Métiers sélectionnés
+lab_mode,Modes of certification,Modes de certification
+lab_year,Year(s) after certification,Année(s) suivant l'obtention du certificat
+lab_type,Types of mobility,Types de mobilité
+lab_ind,Mobility indicators,Indicateurs de mobilité
+lab_geo,Geography,Géographie
+mem_trade,All trades,Tous les métiers
+mem_trade,All Red Seal trades,Tous les métiers Sceau rouge
+mem_trade,Selected Red Seal trades,Métiers Sceau rouge sélectionnés
+mem_trade,Other Red Seal trades,Autres métiers Sceau rouge
+mem_trade,All non-Red Seal trades,Tous les métiers non-Sceau rouge
+mem_mode,All journeypersons,Tous les compagnons
+mem_mode,Completed apprenticeship programs,Programmes d’apprentissage terminés
+mem_mode,Trade qualifiers,Ouvriers qualifiés
+mem_year,1 year after certification,1 an après l'obtention du certificat
+mem_year,3 years after certification,3 ans après l'obtention du certificat
+mem_type,Total mobility,Mobilité totale
+mem_type,Migrant population,Population migrante
+mem_type,Shadow population,Population transitoire
+lab_all_region,All regions,Toutes les régions
+mem_geo,Newfoundland and Labrador,Terre-Neuve-et-Labrador
+mem_geo,Prince Edward Island,Île-du-Prince-Édouard
+mem_geo,Nova Scotia,Nouvelle-Écosse
+mem_geo,New Brunswick,Nouveau-Brunswick
+mem_geo,Quebec,Québec
+mem_geo,Ontario,Ontario
+mem_geo,Manitoba,Manitoba
+mem_geo,Saskatchewan,Saskatchewan
+mem_geo,Alberta,Alberta
+mem_geo,British Columbia,Colombie-Britannique
+mem_geo,Territories,Territoires
+text_no_data,Data is not available. Please change the selection.,Les données ne sont pas disponibles. Veuillez modifier la sélection.
+text_select_all,Select all,Sélectionnez tout
+text_select_none,Deselect all,désélectionner tout
+text_when_none,Select a region,Sélectionnez une région
+

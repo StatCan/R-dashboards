@@ -1,0 +1,69 @@
+key,en,fr
+lab_geo,Geography,Géographie
+lab_cert_year,Year of certification,Année d'obtention du certificat
+lab_trade,Trades,Métiers
+lab_mode,Modes of certification,Modes de certification
+lab_year,Year(s) after certification,Année(s) suivant l'obtention du certificat
+lab_type,Types of mobility,Types de mobilité
+lab_ind,Mobility indicators,Indicateurs de mobilité
+lab_trade_grp,Trade group,Groupe des métiers
+lab_rs,Selected Red Seal trades,Métiers Sceau rouge sélectionnés
+mem_trade_grp,All trades,Tous les métiers
+mem_trade_grp,All Red Seal trades,Tous les métiers Sceau rouge
+mem_trade_grp,Selected Red Seal trades,Métiers Sceau rouge sélectionnés
+mem_trade_rs,Automotive service technician,Mécanicien/mécanicienne de véhicules automobiles
+mem_trade_rs,Carpenter,Charpentier/charpentière
+mem_trade_rs,Construction electrician,Électricien/électricienne (construction)
+mem_trade_rs,Cook,Cuisinier/cuisinière
+mem_trade_rs,Hairstylists and barbers,Coiffeurs/coiffeuses et barbiers/barbières
+mem_trade_rs,Heavy duty equipment technician,Mécanicien/mécanicienne d'équipement lourd
+mem_trade_rs,Industrial electrician,Électricien industriel/électricienne industrielle
+mem_trade_rs,Industrial mechanic (millwright),Mécanicien industriel/mécanicienne industrielle (de chantier)
+mem_trade_rs,Ironworker,Monteur/monteuse de charpente d'acier
+mem_trade_rs,Plumber,Plombier/plombière
+mem_trade_rs,Refrigeration and air conditioning mechanic,Mécanicien/mécanicienne en réfrigération et d'air climatisé
+mem_trade_rs,Sheet metal worker,Ferblantier/ferblantière
+mem_trade_rs,Steamfitter - pipefitter,Monteur/monteuse d'appareils de chauffage
+mem_trade_rs,Truck and transport mechanic,Mécanicien/mécanicienne de camions et transport
+mem_trade_rs,Welder,Soudeur/soudeuse
+mem_trade_grp,Other Red Seal trades,Autres métiers Sceau rouge
+mem_trade_grp,All non-Red Seal trades,Tous les métiers non-Sceau rouge
+mem_mode,All journeypersons,Tous les compagnons
+mem_mode,Completed apprenticeship programs,Programmes d’apprentissage terminés
+mem_mode,Trade qualifiers,Ouvriers qualifiés
+mem_year,1 year after certification,1 an après l'obtention du certificat
+mem_year,3 years after certification,3 ans après l'obtention du certificat
+mem_type,Total mobility,Mobilité totale
+mem_type,Migrant population,Population migrante
+mem_type,Shadow population,Population transitoire
+mem_geo,Canada,Canada
+mem_geo,Newfoundland and Labrador,Terre-Neuve-et-Labrador
+mem_geo,Prince Edward Island,Île-du-Prince-Édouard
+mem_geo,Nova Scotia,Nouvelle-Écosse
+mem_geo,New Brunswick,Nouveau-Brunswick
+mem_geo,Quebec,Québec
+mem_geo,Ontario,Ontario
+mem_geo,Manitoba,Manitoba
+mem_geo,Saskatchewan,Saskatchewan
+mem_geo,Alberta,Alberta
+mem_geo,British Columbia,Colombie-Britannique
+mem_geo,Territories,Territoires
+cohort,Cohort size,Taille de la cohorte
+medage,Median age at certification,Âge médian lors de l'obtention du certificat
+taxfilers,Tax filers,Déclarants fiscaux
+absence,Absence of mobility,Absence de mobilité
+in,In,Entrant
+out,Out,Sortant
+net,Net,Net
+text_no_data,Data is not available. Please change the selection.,Les données ne sont pas disponibles. Veuillez modifier la sélection.
+lab_comp,Compare by,Comparer par
+mem_comp,Geography,Géographie
+mem_comp,Trades,Métiers
+mem_comp,Year of certification,Année d'obtention du certificat
+mem_unit,Number,Nombre
+mem_unit,Percentage,Pourcentage
+sAll_lbl,Select All,Sélectionnez tout
+dsAll_lbl,Deselect All,Désélectionner tout
+f_mesg,Data is too unreliable to be published,Les données sont trop peu fiable pour être publié
+text_no_trade,Select trades,Sélectionnez des métiers
+text_no_geo,Select regions,Sélectionnez des régions
