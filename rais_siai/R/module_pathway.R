@@ -8,6 +8,7 @@ pathway_ui <- function(id) {
       uiOutput(NS(id, 'times_control')),
       uiOutput(NS(id, "trade_control")),
       uiOutput(NS(id, "geo_control")),
+      uiOutput(NS(id, "text_source")),
       width = 4
     ), 
     
@@ -261,6 +262,19 @@ pathway_server <- function(id, language) {
         selected = 1
       )
     })
+    
+    output$text_source <- renderUI({
+      if (language() == "en") {
+        url <-
+          a("Table 37-10-0193-01", href = "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3710019301")
+        tagList("Statistics Canada. ", url)
+      } else {
+        url <-
+          a("Tableau 37-10-0193-01", href = "https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=3710019301")
+        tagList("Statistique Canada. ", url)
+      }
+    })
+    
     
     #  create plotly chat-------------------------------------------------------
     

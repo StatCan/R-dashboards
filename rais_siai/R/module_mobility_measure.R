@@ -9,7 +9,8 @@ mob_measure_ui <- function(id) {
       uiOutput(NS(id, "trade_control")),
       uiOutput(NS(id, "mode_control")),
       uiOutput(NS(id, "type_control")),
-      uiOutput(NS(id, "unit_control"))
+      uiOutput(NS(id, "unit_control")),
+      uiOutput(NS(id, "text_source"))
     ), 
     
     mainPanel(
@@ -253,6 +254,18 @@ mob_measure_server <- function(id, language) {
         label = NULL,
         choices = setNames(1:2, tr("mem_unit")), 
         selected = 2)
+      }
+    })
+    
+    output$text_source <- renderUI({
+      if (language() == "en") {
+        url <-
+          a("Table 37-10-0205-01", href = "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3710020501")
+        tagList("Statistics Canada. ", url)
+      } else {
+        url <-
+          a("Tableau 37-10-0205-01", href = "https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=3710020501")
+        tagList("Statistique Canada. ", url)
       }
     })
     

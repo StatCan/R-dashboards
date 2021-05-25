@@ -2,23 +2,12 @@ mob_matrix_ui <- function(id) {
   sidebarLayout(
     sidebarPanel(
       uiOutput(NS(id, "year_control")),
-      
       uiOutput(NS(id, "time_control")),
-      
       uiOutput(NS(id, "trade_control")),
-      
       uiOutput(NS(id, "mode_control")),
-      
       uiOutput(NS(id, "type_control")),
-      
-      uiOutput(NS(id, "region_selection"))
-      
-      # uiOutput(NS(id, "all_regions")),
-      # 
-      # conditionalPanel(
-      #   condition = paste0("input['", NS(id, "all_regions"), "'] == false"),
-      #   uiOutput(NS(id, "region_selection"))
-      # )
+      uiOutput(NS(id, "region_selection")),
+      uiOutput(NS(id, "text_source"))
       
     ), # sidebarPanel
     
@@ -180,6 +169,18 @@ mob_matrix_server <- function(id, language, innerSize) {
           selected = c(1:11),
           multiple = TRUE
         )
+    })
+    
+    output$text_source <- renderUI({
+      if (language() == "en") {
+        url <-
+          a("Table 37-10-0204-01", href = "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3710020401")
+        tagList("Statistics Canada. ", url)
+      } else {
+        url <-
+          a("Tableau 37-10-0204-01", href = "https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=3710020401")
+        tagList("Statistique Canada. ", url)
+      }
     })
     
     df <- reactive({
