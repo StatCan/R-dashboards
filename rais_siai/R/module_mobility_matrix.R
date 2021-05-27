@@ -38,7 +38,7 @@ mob_matrix_server <- function(id, language, innerSize) {
     tmp <- tempfile()
     resp <-
       GET(
-        "https://github.com/parlerBinou/Shiny-RAIS-longitudinal/raw/main/data/mobility_matrix.Rds",
+        "https://github.com/StatCan/dv-rais-longitudinal/raw/main/data/mobility_matrix.Rds",
         write_disk(tmp)
       )
     # check if the response was "successful" (200)

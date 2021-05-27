@@ -68,7 +68,7 @@ pathway_server <- function(id, language) {
     tmp <- tempfile()
     resp <-
       GET(
-        "https://github.com/parlerBinou/Shiny-RAIS-longitudinal/raw/main/data/pathway.Rds",
+        "https://github.com/StatCan/dv-rais-longitudinal/raw/main/data/pathway.Rds",
         write_disk(tmp)
       )
     # check if the response was "successful" (200)
