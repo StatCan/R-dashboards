@@ -1,31 +1,39 @@
----
-author / auteur : Hyeongsuk Jin
----
+[(Français)](#indicateurs-longitudinaux-des-apprentis-canadiens)
 
-# Shiny app for interprovincial mobility of journeypersons in Canada
+## Canadian apprenticeship longitudinal indicators
 
-[https://shiny.covid.cloud.statcan.ca/rais_siai/en](https://shiny.covid.cloud.statcan.ca/rais_siai/en)
+https://shiny.covid.cloud.statcan.ca/rais_siai/en/
 
-A data visualization application to help understand trends and patterns in the mobility of certified journeypersons in Canada.
+- A data visualization tool to help understand trends and patterns in Canadian apprenticeship longitudinal indicators.
+- Interactive dashboards created in Shiny using data from Statistics Canada Tables [37-10-0193](https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3710019301), [37-10-0204](https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3710020501) and [37-10-0205](https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3710020501)
+- For concepts and definitions used, please see the [Reference Guide](https://www150.statcan.gc.ca/n1/en/catalogue/37200001).
 
-Data from Statistics Canada [Table 37-10-0204-01](https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3710020401), **Movements of journeypersons by province or grouped territories of certification (origin) and of residence or employment (destination), one and three years after certification**
+### How to Contribute
 
-For concepts and definitions used, please see the [Reference Guide](https://www150.statcan.gc.ca/n1/en/catalogue/37200001).
+See [CONTRIBUTING.md](CONTRIBUTING.md)
 
-The chord diagram is generated using the [circlize](https://cran.r-project.org/package=circlize) package, made by Zugang Gu.
-For more information about the package, please see his book [Circular Visualization in R](https://jokergoo.github.io/circlize_book/book/).
-The code for the diagram is based on the [example](https://github.com/guyabel/migest/blob/master/demo/cfplot_reg2.R) from [Guy Abel](https://guyabel.com/).
+### License
 
+Unless otherwise noted, the source code of this project is covered under Crown Copyright, Government of Canada, and is distributed under the [MIT License](LICENSE).
 
-# Une application Shiny pour la mobilité interprovinciale des compagnons au canada
+The Canada wordmark and related graphics associated with this distribution are protected under trademark law and copyright law. No permission is granted to use them outside the parameters of the Government of Canada's corporate identity program. For more information, see [Federal identity requirements](https://www.canada.ca/en/treasury-board-secretariat/topics/government-communications/federal-identity-requirements.html).
 
-[https://shiny.covid.cloud.statcan.ca/rais_siai/fr](https://shiny.covid.cloud.statcan.ca/rais_siai/fr)
+______________________
 
-Une application de visualisation des données pour aider à comprendre les tendances et les schémas de la mobilité des compagnons nouvellement certifiés au Canada.
+## Indicateurs longitudinaux des apprentis canadiens
 
-Données du Statistics Canada [Tableau 37-10-0204-01](https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=3710020401), **Mouvements des compagnons selon la province ou les territoires regroupés de certification (origine) et de résidence ou d'emploi (destination), un et trois ans après leur certification.**
+https://shiny.covid.cloud.statcan.ca/rais_siai/fr/
 
-Pour les concepts et définitions utilisés, veuillez consulter le [guide de référence](https://www150.statcan.gc.ca/n1/fr/catalogue/37200001).
+- Un outil de visualisation des données pour aider à comprendre les tendances et les schémas de les indicateurs longitudinaux des apprentis canadiens.
+- Tableaux de bord interactifs créés en Shiny à partir des données des tableaux de Statistique Canada  [37-10-0193](https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=3710019301), [37-10-0204](https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=3710020501) et [37-10-0205](https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=3710020501).
+- Pour les concepts et définitions utilisés, veuillez consulter le [guide de référence](https://www150.statcan.gc.ca/n1/fr/catalogue/37200001).
 
-Le diagramme à cordes est généré à l'aide du paquet [circlize](https://cran.r-project.org/package=circlize), réalisé par Zugang Gu. Pour plus d'informations sur le paquet, veuillez consulter son livre [Circular Visualization in R](https://jokergoo.github.io/circlize_book/book/) (en anglais).
-Le code du diagramme est basé sur l'[exemple](https://github.com/guyabel/migest/blob/master/demo/cfplot_reg2.R) de [Guy Abel](https://guyabel.com/) (en anglais).
+### Comment contribuer
+
+Voir [CONTRIBUTING.md](CONTRIBUTING.md)
+
+### Licence
+
+Sauf indication contraire, le code source de ce projet est protégé par le droit d'auteur de la Couronne du gouvernement du Canada et distribué sous la [licence MIT](LICENSE).
+
+Le mot-symbole « Canada » et les éléments graphiques connexes liés à cette distribution sont protégés en vertu des lois portant sur les marques de commerce et le droit d'auteur. Aucune autorisation n'est accordée pour leur utilisation à l'extérieur des paramètres du programme de coordination de l'image de marque du gouvernement du Canada. Pour obtenir davantage de renseignements à ce sujet, veuillez consulter les [Exigences pour l'image de marque](https://www.canada.ca/fr/secretariat-conseil-tresor/sujets/communications-gouvernementales/exigences-image-marque.html).
