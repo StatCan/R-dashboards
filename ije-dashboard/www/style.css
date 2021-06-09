@@ -1,0 +1,43 @@
+/* . indicates class, # indicates id */
+
+/* general formatting for body, labels to default to arial */
+body {
+  font-family: arial !important;
+  color: #000000;
+  background-color: #ffffff;
+}
+
+label {
+  font-family: arial !important; 
+}
+
+li {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+img {
+  border: 1;
+  max-width: 100%;
+}
+
+/* modify margin under title panel */
+.col-sm-4 {
+  margin-top: 20px;
+}
+
+.col-sm-8 {
+  margin-top: 20px;
+}
+
+/* background colour formatting */
+.well {
+  background-color: #ebebeb;
+}
+
+/* help text under plots */
+.help-block {
+  font-size: 80%;
+  /*color: #000000 !important;*/
+}
+
