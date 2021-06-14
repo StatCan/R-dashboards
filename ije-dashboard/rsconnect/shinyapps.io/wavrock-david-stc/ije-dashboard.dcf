@@ -1,0 +1,13 @@
+name: ije-dashboard
+title:
+username:
+account: wavrock-david-stc
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4228545
+bundleId: 4697893
+url: https://wavrock-david-stc.shinyapps.io/ije-dashboard/
+when: 1623261613.99463
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: daaas_storage.R|deprecread.md|map_testing.R|map_testing2.R
