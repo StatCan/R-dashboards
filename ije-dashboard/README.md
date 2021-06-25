@@ -1,29 +1,31 @@
 ************************************************************************
-These files are used to generate IJE shiny app                           
-       Prepared by Zhe (River) Yang
+              INTER-JURISDICTIONAL EMPLOYMENT DASHBOARD
+            Prepared by Zhe (River) Yang and Dave Wavrock
 ************************************************************************
-`1. Prepare Data.r`: This r program is used to clean up the IJE data table 
-   and saved data files for app generation. Before running the program, two
-   lines of code need to be updated:
-             a)  setwd('//scan01/Users/yanzh/IJE/2020/data')
-               It specified the current working dirctory. All final datasets 
-               are saved there.
-             b) rawfile = quote("//Scan01/ipe/Theresa/2020_Vintage/ShinyR/")
-               It specified the location of raw datafiles.
-After updating thest two parts, you can run the R-file, all final datasets will 
-be saved in the current working dirctory you specified above.
+Note: Data is cleaned from original vintage IJE tables using a precursor
+script `Prepare Data.R` which is not included in this repository.
 
-2. go the shiny fold and open up the `global.r`.
-    a) update  setwd('//scan01/Users/yanzh/IJE/2020/data').
-       again it is the place where you saved your final data
-    b) update beginy = quote(2002) and endy = quote(2017)
-       These are the first and the last years of data.
-    c) save and close `global.r`.
+The purpose of this dashboard is to present data on Inter-Jurisdictional
+Employment in Canada, and to serve as a companion to existing data 
+tables to better help federal and provincial clients interpret and 
+explore the data.
 
-3.Open RStudio run the code below in the Console
-    shiny::runApp("//scan01/Users/yanzh/IJE/2020/code/shiny", host = "0.0.0.0", port=1300)
-    Note:`//scan01/Users/yanzh/IJE/2020/code/shiny` is where you saved shiny files `global.r`
-    `ui.r` and `server.r` 
-     1300 is the port number, it can also be changed. 
+This repository includes the following files:
 
-4. If you run the shiny on scan02, the app will be avaiable at http://scan02:1300/ 
+`global.R` - Loads data and sets global parameters and libraries
+
+`server.R` - Standard Shiny server function; includes back end script
+for generating reactive and interactive data visuals based on user
+selections
+
+`ui.R` - Standard Shiny UI function; includes front end script for
+laying out plots and variable selection, and provides embedded help 
+and information in the form of footnotes.
+
+`style.css` - Custom CSS styling for app; used in lieu of built-in
+style formats (originally the `darkly` theme) which were found to
+have inconsistent font formatting. Replacing this file with built-in
+themes in the UI script is not recommended.
+
+
+
