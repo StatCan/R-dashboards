@@ -76,6 +76,21 @@ server <- function(input, output, session) {
     dictionary[[key]][[language()]]
   }
   
+  showModal(
+    modalDialog(
+      title = "Ce produit est en cours de retrait.",
+      tagList(
+        "Ce tableau de bord est remplacé par ",
+        a("le produit officiel", href = "https://www150.statcan.gc.ca/n1/pub/71-607-x/71-607-x2021018-eng.htm"),
+        "  sur le site web de Statistique Canada.",
+        br(),
+        "Cette page peut ne pas être maintenue et peut être supprimée à l'avenir."),
+      easyClose = TRUE,
+      fade = TRUE,
+      footer = NULL
+    )
+  )
+  
   output$title_main <- renderText(tr("title_main"))
   output$title_pathway <- renderText(tr("title_pathway"))
   output$title_mob_measures <- renderText(tr("title_mob_measures"))

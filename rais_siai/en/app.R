@@ -76,6 +76,22 @@ server <- function(input, output, session) {
     dictionary[[key]][[language()]]
   }
   
+  # Show the model on start up ...
+  showModal(
+    modalDialog(
+      title = "This product is retiring.",
+      tagList(
+        "This dashboard is replaced by ",
+        a("the official product", href = "https://www150.statcan.gc.ca/n1/pub/71-607-x/71-607-x2021018-eng.htm"),
+        " at Statistics Canada's web site.",
+        br(),
+        "This page may not be maintained and can be removed in the future."),
+      easyClose = TRUE,
+      fade = TRUE,
+      footer = NULL
+    )
+  )
+  
   output$title_main <- renderText(tr("title_main"))
   output$title_pathway <- renderText(tr("title_pathway"))
   output$title_mob_measures <- renderText(tr("title_mob_measures"))

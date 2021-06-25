@@ -21,9 +21,9 @@ mem_trade_rs,Industrial electrician,Électricien industriel/électricienne indus
 mem_trade_rs,Industrial mechanic (millwright),Mécanicien industriel/mécanicienne industrielle (de chantier)
 mem_trade_rs,Ironworker,Monteur/monteuse de charpente d'acier
 mem_trade_rs,Plumber,Plombier/plombière
-mem_trade_rs,Refrigeration and air conditioning mechanic,Mécanicien/mécanicienne en réfrigération et d'air climatisé
+mem_trade_rs,Refrigeration and air conditioning mechanic,Mécanicien/mécanicienne en réfrigération et en climatisation
 mem_trade_rs,Sheet metal worker,Ferblantier/ferblantière
-mem_trade_rs,Steamfitter - pipefitter,Monteur/monteuse d'appareils de chauffage
+mem_trade_rs,Steamfitter - pipefitter,Tuyauteur/tuyauteuse-monteur/monteuse d’appareils de chauffage
 mem_trade_rs,Truck and transport mechanic,Mécanicien/mécanicienne de camions et transport
 mem_trade_rs,Welder,Soudeur/soudeuse
 mem_trade_grp,Other Red Seal trades,Autres métiers Sceau rouge
@@ -62,8 +62,8 @@ mem_comp,Trades,Métiers
 mem_comp,Year of certification,Année d'obtention du certificat
 mem_unit,Number,Nombre
 mem_unit,Percentage,Pourcentage
-sAll_lbl,Select All,Sélectionnez tout
+sAll_lbl,Select All,Sélectionner tout
 dsAll_lbl,Deselect All,Désélectionner tout
 f_mesg,Data is too unreliable to be published,Les données sont trop peu fiable pour être publié
-text_no_trade,Select trades,Sélectionnez des métiers
-text_no_geo,Select regions,Sélectionnez des régions
+text_no_trade,Select trades,Sélectionner des métiers
+text_no_geo,Select regions,Sélectionner des régions

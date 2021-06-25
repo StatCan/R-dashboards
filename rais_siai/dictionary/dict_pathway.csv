@@ -37,16 +37,16 @@ mem_trade_rs,Industrial electrician,Électricien industriel/électricienne indus
 mem_trade_rs,Industrial instrumentation and control technician,Technicien/technicienne en instrumentation industrielle et contrôle
 mem_trade_rs,Industrial mechanic (millwright),Mécanicien industriel/mécanicienne industrielle (de chantier)
 mem_trade_rs,Ironworker,Monteur/monteuse de charpente d'acier
-mem_trade_rs,Landscape horticulturist,Horticulteur-paysagiste/horticultrice-paysagiste
+mem_trade_rs,Landscape horticulturist,Horticulteur/horticultrice-paysagiste 
 mem_trade_rs,Machinist,Machiniste
-mem_trade_rs,Motor vehicle body repairer,Débosseleur-peintre/débosseleuse-peintre
+mem_trade_rs,Motor vehicle body repairer,Débosseleur/débosseleuse et réparateur/réparatrice de carrosserie
 mem_trade_rs,Painter and decorator,Peintre et décorateur/décoratrice
 mem_trade_rs,Plumber,Plombier/plombière
 mem_trade_rs,Powerline technician,Monteur/monteuse de lignes sous tension
-mem_trade_rs,Refrigeration and air conditioning mechanic,Mécanicien/mécanicienne en réfrigération et d'air climatisé
+mem_trade_rs,Refrigeration and air conditioning mechanic,Mécanicien/mécanicienne en réfrigération et en climatisation
 mem_trade_rs,Roofer,Couvreur/couvreuse
 mem_trade_rs,Sheet metal worker,Ferblantier/ferblantière
-mem_trade_rs,Steamfitter - pipefitter,Monteur/monteuse d'appareils de chauffage
+mem_trade_rs,Steamfitter - pipefitter,Tuyauteur/tuyauteuse-monteur/monteuse d’appareils de chauffage
 mem_trade_rs,Truck and transport mechanic,Mécanicien/mécanicienne de camions et transport
 mem_trade_rs,Welder,Soudeur/soudeuse
 mem_trade_grp,Other Red Seal trades,Autres métiers Sceau rouge
@@ -54,7 +54,7 @@ mem_trade_grp,All non-Red Seal trades,Tous les métiers non-Sceau rouge
 mem_trade_nrs,Child and youth worker,Assistant social/assistante sociale auprès des jeunes
 mem_trade_nrs,Developmental services worker,Travailleur/travailleuse de services de développement
 mem_trade_nrs,Early childhood educator,Éducateur/éducatrice de la petite enfance
-mem_trade_nrs,Educational assistant,Aide-enseignant/aide-enseignante
+mem_trade_nrs,Educational assistant,Assistant/assistante en éducation
 mem_trade_nrs,Esthetician,Esthéticien/esthéticienne
 mem_trade_grp,Selected non-Red Seal trades,Métiers non-Sceau rouge sélectionnés
 mem_trade_grp,Other non-Red Seal trades,Autres métiers non-Sceau rouge
@@ -76,9 +76,9 @@ mem_time,Within 2 times program duration,Au cours d'une période équivalente à
 mesg_val,Data is not available. Please change the selection.,Les données ne sont pas disponibles. Veuillez modifier la sélection.
 age_cert,Median age at certification,Âge médian lors de l'obtention du certificat
 time_cert,Median time to certification,Délai médian d'obtention de la certification
-time_disc,Median time to discontinuation,Délai médian d'abandon
-sAll_lbl,Select All,Sélectionnez tout
+time_disc,Median time to discontinuation,Temps médian écoulé au moment de l’abandon
+sAll_lbl,Select All,Sélectionner tout
 dsAll_lbl,Deselect All,Désélectionner tout
 f_mesg,Data is too unreliable to be published,Les données sont trop peu fiable pour être publié
-text_no_trade,Select trades,Sélectionnez des métiers
-text_no_geo,Select regions,Sélectionnez des régions
+text_no_trade,Select trades,Sélectionner des métiers
+text_no_geo,Select regions,Sélectionner des régions
