@@ -1,5 +1,20 @@
 # R-dashboards
 
+********************************************************************************************
+
+**** PLEASE READ - IMPORTANT / URGENT ****
+
+Advanced Analytics Workplace (AAW) will soon be decommissioning the R-Shiny Dashboards. Users / Owners of the current dashboards will be asked (have been asked) to transfer their projects to the Data Visualizations in Dissemination Division at Statistics Canada.
+
+Your point of contact will be Joseph Prince. Joseph and his team have already started to transfer most of the AAW R-Shiny Dashboards.
+All that is required is too ZIP your current r-dashboard and send it to Joseph Prince (joseph.prince@canada.ca ) to get the process started.
+
+If require any help on zipping your current dashboards, please do not hesitate to ask.
+
+Note: Please be advise that the current dashboards will be deleted once all the current dashboards will be transfered to Dissemination Division. At that point, a deadline will be set for the deletion of those Dashboard in our Github Repo.
+
+*********************************************************************************************
+
 This repo contains R-shiny dashboards that are hosted on an R-shiny server. Each
 subdirectory here contains a different dashboard, with dashboards accessible at
 `https://shiny.covid.cloud.statcan.ca/<DASHBOARD_DIR_NAME>`.
